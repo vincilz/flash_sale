@@ -1,4 +1,4 @@
-package com.vinci.flashsale.storage.biz.api;
+package com.vinci.flashsale.storage.api;
 
 /**
  * @author vinci

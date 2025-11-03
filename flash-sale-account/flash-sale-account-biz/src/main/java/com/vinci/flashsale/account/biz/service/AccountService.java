@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
  * @version 1.0
  * @date 2025/10/28
  */
-@Service
 public interface AccountService {
 
     void decrease(String userId, Integer money);

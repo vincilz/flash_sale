@@ -4,6 +4,7 @@ import com.vinci.flashsale.account.api.AccountApiService;
 import com.vinci.flashsale.account.biz.service.AccountService;
 import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * @author vinci
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @version 1.0
  * 
  */
+@Service
 @DubboService(interfaceClass = AccountApiService.class, version = "1.0.0")
 public class DefaultAccountApiService implements AccountApiService {
 

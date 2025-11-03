@@ -1,6 +1,7 @@
 package com.vinci.flashsale.order.biz.service;
 
 import com.vinci.flashsale.order.biz.entity.OrderPurchaseReqVO;
+import org.springframework.stereotype.Service;
 
 /**
  * @author vinci

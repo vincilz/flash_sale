@@ -9,6 +9,7 @@
     <packaging>pom</packaging>
     <description>flash-sale</description>
     <modules>
+        <module>flash-sale-common</module>
         <module>flash-sale-order</module>
         <module>flash-sale-account</module>
         <module>flash-sale-storage</module>

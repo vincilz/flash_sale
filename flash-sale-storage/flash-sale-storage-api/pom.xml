@@ -8,12 +8,16 @@
     <name>${project.artifactId}</name>
     <description>flash-sale-storage-api</description>
     <parent>
-        <groupId>com.vinci.flase-sale</groupId>
+        <groupId>com.vinci.flash-sale</groupId>
         <artifactId>flash-sale-storage</artifactId>
         <version>1.0.0</version>
     </parent>
     <dependencies>
-
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
     </dependencies>
 
 </project>

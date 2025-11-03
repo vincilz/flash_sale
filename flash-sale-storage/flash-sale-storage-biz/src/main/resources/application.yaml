@@ -1,0 +1,61 @@
+server:
+  port: 22470
+
+spring:
+  application:
+    name: storage-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.1.117:8848
+        namespace: public
+        enabled: false
+        register-enabled: false
+    sentinel:
+      transport:
+        dashboard: 192.168.1.117:8080
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.1.113:8306/new-erp-temp?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: enming202526
+
+seata:
+  tx-service-group: default_tx_group
+  client:
+    tm:
+      default-global-transaction-timeout: 60000
+  service:
+    vgroup-mapping:
+      default_tx_group: SH
+  registry:
+    type: nacos
+    nacos:
+      group: SEATA_GROUP
+      namespace: public
+      server-addr: 192.168.1.117:8848
+
+mybatis:
+  type-aliases-package: com.vinci.flashsale.storage.biz.entity
+  configuration:
+    map-underscore-to-camel-case: true
+
+dubbo:
+  application:
+    name: storage-api-service
+    qos-port: 22242
+  registry:
+    address: nacos://192.168.1.117:8848
+  protocol:
+    name: dubbo
+    port: 22570
+    host: 192.168.1.117
+  scan:
+    base-packages: com.vinci.flashsale.storage.biz.api
+  consumer:
+    check: false
+    timeout: 5000
+  provider:
+    timeout: 5000
+    group: DUBBO_GROUP
+    version: 1.0.0

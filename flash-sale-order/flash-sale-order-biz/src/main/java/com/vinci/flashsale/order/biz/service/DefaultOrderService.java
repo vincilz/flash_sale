@@ -1,14 +1,16 @@
 package com.vinci.flashsale.order.biz.service;
 
 import com.vinci.flashsale.account.api.AccountApiService;
+import com.vinci.flashsale.account.dto.AccountDecreaseRequest;
 import com.vinci.flashsale.order.biz.entity.OrderDO;
 import com.vinci.flashsale.order.biz.entity.OrderPurchaseReqVO;
 import com.vinci.flashsale.order.biz.mapper.OrderMapper;
 import com.vinci.flashsale.storage.api.StorageApiService;
-import io.seata.spring.annotation.GlobalTransactional;
+import com.vinci.flashsale.storage.dto.StorageDecreaseRequest;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author vinci
@@ -26,14 +28,22 @@ public class DefaultOrderService implements OrderService {
     private StorageApiService storageApiService;
 
     @Override
-    @GlobalTransactional(name = "purchase_order", rollbackFor = Exception.class)
+    @Transactional(rollbackFor = Exception.class)
     public void orderPurchase(OrderPurchaseReqVO reqVO) {
         // 创建订单
         create(reqVO.getUserId(), reqVO.getCommodityCode(), reqVO.getCount(), reqVO.getMoney());
         // 扣减库存
-        storageApiService.decrease(reqVO.getCommodityCode(), reqVO.getCount());
+        StorageDecreaseRequest storageDecreaseRequest = StorageDecreaseRequest.newBuilder()
+                .setCommodityCode(reqVO.getCommodityCode())
+                .setCount(reqVO.getCount())
+                .build();
+        storageApiService.decrease(storageDecreaseRequest);
         // 扣减账户
-        accountApiService.decrease(reqVO.getUserId(), reqVO.getMoney());
+        AccountDecreaseRequest accountDecreaseRequest = AccountDecreaseRequest.newBuilder()
+                .setUserId(reqVO.getUserId())
+                .setMoney(reqVO.getMoney())
+                .build();
+        accountApiService.decrease(accountDecreaseRequest);
     }
 
     @Override

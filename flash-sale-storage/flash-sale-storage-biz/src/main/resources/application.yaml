@@ -1,5 +1,5 @@
 server:
-  port: 22470
+  port: 22200
 
 spring:
   application:
@@ -16,24 +16,9 @@ spring:
         dashboard: 192.168.1.117:8080
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.1.113:8306/new-erp-temp?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://192.168.1.117:3306/flash_sale?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&allowPublicKeyRetrieval=true
     username: root
-    password: enming202526
-
-seata:
-  tx-service-group: default_tx_group
-  client:
-    tm:
-      default-global-transaction-timeout: 60000
-  service:
-    vgroup-mapping:
-      default_tx_group: SH
-  registry:
-    type: nacos
-    nacos:
-      group: SEATA_GROUP
-      namespace: public
-      server-addr: 192.168.1.117:8848
+    password: 123456
 
 mybatis:
   type-aliases-package: com.vinci.flashsale.storage.biz.entity
@@ -43,13 +28,14 @@ mybatis:
 dubbo:
   application:
     name: storage-api-service
-    qos-port: 22242
+    qos-port: 22210
   registry:
     address: nacos://192.168.1.117:8848
   protocol:
-    name: dubbo
-    port: 22570
+    name: tri
+    port: 22220
     host: 192.168.1.117
+    serialization: protobuf
   scan:
     base-packages: com.vinci.flashsale.storage.biz.api
   consumer:

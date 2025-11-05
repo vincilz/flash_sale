@@ -2,9 +2,9 @@ package com.vinci.flashsale.storage.biz.service;
 
 import com.vinci.flashsale.storage.biz.entity.StorageDO;
 import com.vinci.flashsale.storage.biz.mapper.StorageMapper;
-import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author vinci
@@ -18,7 +18,7 @@ public class DefaultStorageService implements StorageService {
     private StorageMapper storageMapper;
 
     @Override
-    @GlobalTransactional(name = "purchase_order", rollbackFor = Exception.class)
+    @Transactional(rollbackFor = Exception.class)
     public void decrease(String commodityCode, Integer count) {
         synchronized (DefaultStorageService.class) {
             StorageDO storageDO = storageMapper.findByCommodityCode(commodityCode);

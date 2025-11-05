@@ -2,9 +2,9 @@ package com.vinci.flashsale.account.biz.service;
 
 import com.vinci.flashsale.account.biz.entity.AccountDO;
 import com.vinci.flashsale.account.biz.mapper.AccountMapper;
-import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author vinci
@@ -18,7 +18,7 @@ public class DefaultAccountService implements AccountService {
     private AccountMapper accountMapper;
 
     @Override
-    @GlobalTransactional(name = "purchase_order", rollbackFor = Exception.class)
+    @Transactional(rollbackFor = Exception.class)
     public void decrease(String userId, Integer money) {
         synchronized (DefaultAccountService.class) {
             AccountDO accountDO = accountMapper.findByUserId(userId);

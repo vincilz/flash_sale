@@ -5,7 +5,7 @@
     <groupId>com.vinci.flash-sale</groupId>
     <artifactId>flash-sale-common</artifactId>
     <version>1.0.0</version>
-    <name>flash-sale-common</name>
+    <name>${project.artifactId}</name>
     <description>Demo project for Spring Boot</description>
     <parent>
         <groupId>com.vinci</groupId>
@@ -16,14 +16,41 @@
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
+            <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java-util</artifactId>
+        </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-maven-plugin</artifactId>
+                <version>${dubbo.version}</version>
+                <configuration>
+                    <outputDir>${project.basedir}/build</outputDir>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

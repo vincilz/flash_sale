@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+import "order.proto";
+import "common.proto";
+
+option java_multiple_files = true;
+package com.vinci.flashsale.order.api;
+
+service OrderApiService {
+  rpc Decrease(com.vinci.flashsale.order.dto.OrderCreateRequest) returns (com.vinci.flashsale.common.dto.CommonResponse);
+}

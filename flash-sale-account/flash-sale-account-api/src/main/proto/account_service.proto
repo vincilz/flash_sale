@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+import "account.proto";
+import "common.proto";
+
+option java_multiple_files = true;
+package com.vinci.flashsale.account.api;
+
+service AccountApiService {
+  rpc Decrease(com.vinci.flashsale.account.dto.AccountDecreaseRequest) returns (com.vinci.flashsale.common.dto.CommonResponse);
+}

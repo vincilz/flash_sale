@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+import "storage.proto";
+import "common.proto";
+
+option java_multiple_files = true;
+package com.vinci.flashsale.storage.api;
+
+service StorageApiService {
+  rpc Decrease(com.vinci.flashsale.storage.dto.StorageDecreaseRequest) returns (com.vinci.flashsale.common.dto.CommonResponse);
+}

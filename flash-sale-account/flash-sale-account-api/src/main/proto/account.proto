@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+package com.vinci.flashsale.account.dto;
+
+message AccountDecreaseRequest {
+  string user_id = 1;
+  int32 money = 2;
+}

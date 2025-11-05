@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+package com.vinci.flashsale.storage.dto;
+
+message StorageDecreaseRequest {
+  string commodityCode = 1;
+  int32 count = 2;
+}

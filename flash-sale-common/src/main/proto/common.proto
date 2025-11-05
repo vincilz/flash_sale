@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+import "google/protobuf/any.proto";
+import "google/protobuf/empty.proto";
+
+option java_package = "com.vinci.flashsale.common.dto";
+option java_multiple_files = true;
+package com.vinci.flashsale.common.dto;
+
+message CommonResponse {
+  int32 code = 1;
+  string message = 2;
+  google.protobuf.Any data = 3;
+}
+
+message Empty {}

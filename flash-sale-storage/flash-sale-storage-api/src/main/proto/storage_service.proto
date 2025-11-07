@@ -7,5 +7,7 @@ option java_multiple_files = true;
 package com.vinci.flashsale.storage.api;
 
 service StorageApiService {
-  rpc Decrease(com.vinci.flashsale.storage.dto.StorageDecreaseRequest) returns (com.vinci.flashsale.common.dto.CommonResponse);
+  rpc Reduce(com.vinci.flashsale.storage.dto.StorageReduceRequest) returns (com.vinci.flashsale.common.dto.CommonResponse);
+
+  rpc CompensateReduce(com.vinci.flashsale.storage.dto.StorageReduceRequest) returns (com.vinci.flashsale.common.dto.CommonResponse);
 }

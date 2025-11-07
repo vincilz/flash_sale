@@ -26,10 +26,13 @@ public final class StorageService {
     String[] descriptorData = {
       "\n\025storage_service.proto\022\037com.vinci.flash" +
       "sale.storage.api\032\rstorage.proto\032\014common." +
-      "proto2\210\001\n\021StorageApiService\022s\n\010Decrease\022" +
-      "7.com.vinci.flashsale.storage.dto.Storag" +
-      "eDecreaseRequest\032..com.vinci.flashsale.c" +
-      "ommon.dto.CommonResponseB\002P\001b\006proto3"
+      "proto2\377\001\n\021StorageApiService\022o\n\006Reduce\0225." +
+      "com.vinci.flashsale.storage.dto.StorageR" +
+      "educeRequest\032..com.vinci.flashsale.commo" +
+      "n.dto.CommonResponse\022y\n\020CompensateReduce" +
+      "\0225.com.vinci.flashsale.storage.dto.Stora" +
+      "geReduceRequest\032..com.vinci.flashsale.co" +
+      "mmon.dto.CommonResponseB\002P\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

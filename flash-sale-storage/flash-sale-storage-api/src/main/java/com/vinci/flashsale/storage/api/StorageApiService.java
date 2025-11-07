@@ -33,7 +33,11 @@ public interface StorageApiService extends org.apache.dubbo.rpc.model.DubboStub 
     String JAVA_SERVICE_NAME = "com.vinci.flashsale.storage.api.StorageApiService";
     String SERVICE_NAME = "com.vinci.flashsale.storage.api.StorageApiService";
 
-    com.vinci.flashsale.common.dto.CommonResponse decrease(com.vinci.flashsale.storage.dto.StorageDecreaseRequest request);
+    com.vinci.flashsale.common.dto.CommonResponse reduce(com.vinci.flashsale.storage.dto.StorageReduceRequest request);
 
-    CompletableFuture<com.vinci.flashsale.common.dto.CommonResponse> decreaseAsync(com.vinci.flashsale.storage.dto.StorageDecreaseRequest request);
+    CompletableFuture<com.vinci.flashsale.common.dto.CommonResponse> reduceAsync(com.vinci.flashsale.storage.dto.StorageReduceRequest request);
+
+    com.vinci.flashsale.common.dto.CommonResponse compensateReduce(com.vinci.flashsale.storage.dto.StorageReduceRequest request);
+
+    CompletableFuture<com.vinci.flashsale.common.dto.CommonResponse> compensateReduceAsync(com.vinci.flashsale.storage.dto.StorageReduceRequest request);
 }

@@ -16,10 +16,10 @@ public final class Account {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_vinci_flashsale_account_dto_AccountDecreaseRequest_descriptor;
+    internal_static_com_vinci_flashsale_account_dto_AccountReduceRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_vinci_flashsale_account_dto_AccountDecreaseRequest_fieldAccessorTable;
+      internal_static_com_vinci_flashsale_account_dto_AccountReduceRequest_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -30,18 +30,18 @@ public final class Account {
   static {
     String[] descriptorData = {
       "\n\raccount.proto\022\037com.vinci.flashsale.acc" +
-      "ount.dto\"8\n\026AccountDecreaseRequest\022\017\n\007us" +
-      "er_id\030\001 \001(\t\022\r\n\005money\030\002 \001(\005B\002P\001b\006proto3"
+      "ount.dto\"6\n\024AccountReduceRequest\022\017\n\007user" +
+      "_id\030\001 \001(\t\022\r\n\005money\030\002 \001(\005B\002P\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         });
-    internal_static_com_vinci_flashsale_account_dto_AccountDecreaseRequest_descriptor =
+    internal_static_com_vinci_flashsale_account_dto_AccountReduceRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_com_vinci_flashsale_account_dto_AccountDecreaseRequest_fieldAccessorTable = new
+    internal_static_com_vinci_flashsale_account_dto_AccountReduceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_vinci_flashsale_account_dto_AccountDecreaseRequest_descriptor,
+        internal_static_com_vinci_flashsale_account_dto_AccountReduceRequest_descriptor,
         new String[] { "UserId", "Money", });
   }
 

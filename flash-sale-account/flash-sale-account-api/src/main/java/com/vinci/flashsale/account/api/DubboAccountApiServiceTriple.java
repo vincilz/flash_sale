@@ -63,24 +63,41 @@ public final class DubboAccountApiServiceTriple {
         return new AccountApiServiceStub((Invoker<AccountApiService>)invoker);
     }
 
-    private static final StubMethodDescriptor decreaseMethod = new StubMethodDescriptor("Decrease",
-    com.vinci.flashsale.account.dto.AccountDecreaseRequest.class, com.vinci.flashsale.common.dto.CommonResponse.class, MethodDescriptor.RpcType.UNARY,
-    obj -> ((Message) obj).toByteArray(), obj -> ((Message) obj).toByteArray(), com.vinci.flashsale.account.dto.AccountDecreaseRequest::parseFrom,
+    private static final StubMethodDescriptor reduceMethod = new StubMethodDescriptor("Reduce",
+    com.vinci.flashsale.account.dto.AccountReduceRequest.class, com.vinci.flashsale.common.dto.CommonResponse.class, MethodDescriptor.RpcType.UNARY,
+    obj -> ((Message) obj).toByteArray(), obj -> ((Message) obj).toByteArray(), com.vinci.flashsale.account.dto.AccountReduceRequest::parseFrom,
     com.vinci.flashsale.common.dto.CommonResponse::parseFrom);
 
-    private static final StubMethodDescriptor decreaseAsyncMethod = new StubMethodDescriptor("Decrease",
-    com.vinci.flashsale.account.dto.AccountDecreaseRequest.class, CompletableFuture.class, MethodDescriptor.RpcType.UNARY,
-    obj -> ((Message) obj).toByteArray(), obj -> ((Message) obj).toByteArray(), com.vinci.flashsale.account.dto.AccountDecreaseRequest::parseFrom,
+    private static final StubMethodDescriptor reduceAsyncMethod = new StubMethodDescriptor("Reduce",
+    com.vinci.flashsale.account.dto.AccountReduceRequest.class, CompletableFuture.class, MethodDescriptor.RpcType.UNARY,
+    obj -> ((Message) obj).toByteArray(), obj -> ((Message) obj).toByteArray(), com.vinci.flashsale.account.dto.AccountReduceRequest::parseFrom,
     com.vinci.flashsale.common.dto.CommonResponse::parseFrom);
 
-    private static final StubMethodDescriptor decreaseProxyAsyncMethod = new StubMethodDescriptor("DecreaseAsync",
-    com.vinci.flashsale.account.dto.AccountDecreaseRequest.class, com.vinci.flashsale.common.dto.CommonResponse.class, MethodDescriptor.RpcType.UNARY,
-    obj -> ((Message) obj).toByteArray(), obj -> ((Message) obj).toByteArray(), com.vinci.flashsale.account.dto.AccountDecreaseRequest::parseFrom,
+    private static final StubMethodDescriptor reduceProxyAsyncMethod = new StubMethodDescriptor("ReduceAsync",
+    com.vinci.flashsale.account.dto.AccountReduceRequest.class, com.vinci.flashsale.common.dto.CommonResponse.class, MethodDescriptor.RpcType.UNARY,
+    obj -> ((Message) obj).toByteArray(), obj -> ((Message) obj).toByteArray(), com.vinci.flashsale.account.dto.AccountReduceRequest::parseFrom,
+    com.vinci.flashsale.common.dto.CommonResponse::parseFrom);
+
+    private static final StubMethodDescriptor compensateReduceMethod = new StubMethodDescriptor("CompensateReduce",
+    com.vinci.flashsale.account.dto.AccountReduceRequest.class, com.vinci.flashsale.common.dto.CommonResponse.class, MethodDescriptor.RpcType.UNARY,
+    obj -> ((Message) obj).toByteArray(), obj -> ((Message) obj).toByteArray(), com.vinci.flashsale.account.dto.AccountReduceRequest::parseFrom,
+    com.vinci.flashsale.common.dto.CommonResponse::parseFrom);
+
+    private static final StubMethodDescriptor compensateReduceAsyncMethod = new StubMethodDescriptor("CompensateReduce",
+    com.vinci.flashsale.account.dto.AccountReduceRequest.class, CompletableFuture.class, MethodDescriptor.RpcType.UNARY,
+    obj -> ((Message) obj).toByteArray(), obj -> ((Message) obj).toByteArray(), com.vinci.flashsale.account.dto.AccountReduceRequest::parseFrom,
+    com.vinci.flashsale.common.dto.CommonResponse::parseFrom);
+
+    private static final StubMethodDescriptor compensateReduceProxyAsyncMethod = new StubMethodDescriptor("CompensateReduceAsync",
+    com.vinci.flashsale.account.dto.AccountReduceRequest.class, com.vinci.flashsale.common.dto.CommonResponse.class, MethodDescriptor.RpcType.UNARY,
+    obj -> ((Message) obj).toByteArray(), obj -> ((Message) obj).toByteArray(), com.vinci.flashsale.account.dto.AccountReduceRequest::parseFrom,
     com.vinci.flashsale.common.dto.CommonResponse::parseFrom);
 
     static{
-        serviceDescriptor.addMethod(decreaseMethod);
-        serviceDescriptor.addMethod(decreaseProxyAsyncMethod);
+        serviceDescriptor.addMethod(reduceMethod);
+        serviceDescriptor.addMethod(reduceProxyAsyncMethod);
+        serviceDescriptor.addMethod(compensateReduceMethod);
+        serviceDescriptor.addMethod(compensateReduceProxyAsyncMethod);
     }
 
     public static class AccountApiServiceStub implements AccountApiService, Destroyable {
@@ -96,16 +113,29 @@ public final class DubboAccountApiServiceTriple {
          }
 
         @Override
-        public com.vinci.flashsale.common.dto.CommonResponse decrease(com.vinci.flashsale.account.dto.AccountDecreaseRequest request){
-            return StubInvocationUtil.unaryCall(invoker, decreaseMethod, request);
+        public com.vinci.flashsale.common.dto.CommonResponse reduce(com.vinci.flashsale.account.dto.AccountReduceRequest request){
+            return StubInvocationUtil.unaryCall(invoker, reduceMethod, request);
         }
 
-        public CompletableFuture<com.vinci.flashsale.common.dto.CommonResponse> decreaseAsync(com.vinci.flashsale.account.dto.AccountDecreaseRequest request){
-            return StubInvocationUtil.unaryCall(invoker, decreaseAsyncMethod, request);
+        public CompletableFuture<com.vinci.flashsale.common.dto.CommonResponse> reduceAsync(com.vinci.flashsale.account.dto.AccountReduceRequest request){
+            return StubInvocationUtil.unaryCall(invoker, reduceAsyncMethod, request);
         }
 
-        public void decrease(com.vinci.flashsale.account.dto.AccountDecreaseRequest request, StreamObserver<com.vinci.flashsale.common.dto.CommonResponse> responseObserver){
-            StubInvocationUtil.unaryCall(invoker, decreaseMethod , request, responseObserver);
+        public void reduce(com.vinci.flashsale.account.dto.AccountReduceRequest request, StreamObserver<com.vinci.flashsale.common.dto.CommonResponse> responseObserver){
+            StubInvocationUtil.unaryCall(invoker, reduceMethod , request, responseObserver);
+        }
+
+        @Override
+        public com.vinci.flashsale.common.dto.CommonResponse compensateReduce(com.vinci.flashsale.account.dto.AccountReduceRequest request){
+            return StubInvocationUtil.unaryCall(invoker, compensateReduceMethod, request);
+        }
+
+        public CompletableFuture<com.vinci.flashsale.common.dto.CommonResponse> compensateReduceAsync(com.vinci.flashsale.account.dto.AccountReduceRequest request){
+            return StubInvocationUtil.unaryCall(invoker, compensateReduceAsyncMethod, request);
+        }
+
+        public void compensateReduce(com.vinci.flashsale.account.dto.AccountReduceRequest request, StreamObserver<com.vinci.flashsale.common.dto.CommonResponse> responseObserver){
+            StubInvocationUtil.unaryCall(invoker, compensateReduceMethod , request, responseObserver);
         }
     }
 
@@ -126,15 +156,31 @@ public final class DubboAccountApiServiceTriple {
         }
 
         @Override
-        public CompletableFuture<com.vinci.flashsale.common.dto.CommonResponse> decreaseAsync(com.vinci.flashsale.account.dto.AccountDecreaseRequest request){
-                return CompletableFuture.completedFuture(decrease(request));
+        public CompletableFuture<com.vinci.flashsale.common.dto.CommonResponse> reduceAsync(com.vinci.flashsale.account.dto.AccountReduceRequest request){
+                return CompletableFuture.completedFuture(reduce(request));
+        }
+
+        @Override
+        public CompletableFuture<com.vinci.flashsale.common.dto.CommonResponse> compensateReduceAsync(com.vinci.flashsale.account.dto.AccountReduceRequest request){
+                return CompletableFuture.completedFuture(compensateReduce(request));
         }
 
         // This server stream type unary method is <b>only</b> used for generated stub to support async unary method.
         // It will not be called if you are NOT using Dubbo3 generated triple stub and <b>DO NOT</b> implement this method.
 
-        public void decrease(com.vinci.flashsale.account.dto.AccountDecreaseRequest request, StreamObserver<com.vinci.flashsale.common.dto.CommonResponse> responseObserver){
-            decreaseAsync(request).whenComplete((r, t) -> {
+        public void reduce(com.vinci.flashsale.account.dto.AccountReduceRequest request, StreamObserver<com.vinci.flashsale.common.dto.CommonResponse> responseObserver){
+            reduceAsync(request).whenComplete((r, t) -> {
+                if (t != null) {
+                    responseObserver.onError(t);
+                } else {
+                    responseObserver.onNext(r);
+                    responseObserver.onCompleted();
+                }
+            });
+        }
+
+        public void compensateReduce(com.vinci.flashsale.account.dto.AccountReduceRequest request, StreamObserver<com.vinci.flashsale.common.dto.CommonResponse> responseObserver){
+            compensateReduceAsync(request).whenComplete((r, t) -> {
                 if (t != null) {
                     responseObserver.onError(t);
                 } else {
@@ -150,22 +196,36 @@ public final class DubboAccountApiServiceTriple {
             .getExtensionLoader(PathResolver.class)
             .getDefaultExtension();
             Map<String, StubMethodHandler<?, ?>> handlers = new HashMap<>();
-            pathResolver.addNativeStub( "/" + SERVICE_NAME + "/Decrease");
-            pathResolver.addNativeStub( "/" + SERVICE_NAME + "/DecreaseAsync");
+            pathResolver.addNativeStub( "/" + SERVICE_NAME + "/Reduce");
+            pathResolver.addNativeStub( "/" + SERVICE_NAME + "/ReduceAsync");
             // for compatibility
-            pathResolver.addNativeStub( "/" + JAVA_SERVICE_NAME + "/Decrease");
-            pathResolver.addNativeStub( "/" + JAVA_SERVICE_NAME + "/DecreaseAsync");
-            BiConsumer<com.vinci.flashsale.account.dto.AccountDecreaseRequest, StreamObserver<com.vinci.flashsale.common.dto.CommonResponse>> decreaseFunc = this::decrease;
-            handlers.put(decreaseMethod.getMethodName(), new UnaryStubMethodHandler<>(decreaseFunc));
-            BiConsumer<com.vinci.flashsale.account.dto.AccountDecreaseRequest, StreamObserver<com.vinci.flashsale.common.dto.CommonResponse>> decreaseAsyncFunc = syncToAsync(this::decrease);
-            handlers.put(decreaseProxyAsyncMethod.getMethodName(), new UnaryStubMethodHandler<>(decreaseAsyncFunc));
+            pathResolver.addNativeStub( "/" + JAVA_SERVICE_NAME + "/Reduce");
+            pathResolver.addNativeStub( "/" + JAVA_SERVICE_NAME + "/ReduceAsync");
+            pathResolver.addNativeStub( "/" + SERVICE_NAME + "/CompensateReduce");
+            pathResolver.addNativeStub( "/" + SERVICE_NAME + "/CompensateReduceAsync");
+            // for compatibility
+            pathResolver.addNativeStub( "/" + JAVA_SERVICE_NAME + "/CompensateReduce");
+            pathResolver.addNativeStub( "/" + JAVA_SERVICE_NAME + "/CompensateReduceAsync");
+            BiConsumer<com.vinci.flashsale.account.dto.AccountReduceRequest, StreamObserver<com.vinci.flashsale.common.dto.CommonResponse>> reduceFunc = this::reduce;
+            handlers.put(reduceMethod.getMethodName(), new UnaryStubMethodHandler<>(reduceFunc));
+            BiConsumer<com.vinci.flashsale.account.dto.AccountReduceRequest, StreamObserver<com.vinci.flashsale.common.dto.CommonResponse>> reduceAsyncFunc = syncToAsync(this::reduce);
+            handlers.put(reduceProxyAsyncMethod.getMethodName(), new UnaryStubMethodHandler<>(reduceAsyncFunc));
+            BiConsumer<com.vinci.flashsale.account.dto.AccountReduceRequest, StreamObserver<com.vinci.flashsale.common.dto.CommonResponse>> compensateReduceFunc = this::compensateReduce;
+            handlers.put(compensateReduceMethod.getMethodName(), new UnaryStubMethodHandler<>(compensateReduceFunc));
+            BiConsumer<com.vinci.flashsale.account.dto.AccountReduceRequest, StreamObserver<com.vinci.flashsale.common.dto.CommonResponse>> compensateReduceAsyncFunc = syncToAsync(this::compensateReduce);
+            handlers.put(compensateReduceProxyAsyncMethod.getMethodName(), new UnaryStubMethodHandler<>(compensateReduceAsyncFunc));
 
             return new StubInvoker<>(this, url, AccountApiService.class, handlers);
         }
 
         @Override
-        public com.vinci.flashsale.common.dto.CommonResponse decrease(com.vinci.flashsale.account.dto.AccountDecreaseRequest request){
-            throw unimplementedMethodException(decreaseMethod);
+        public com.vinci.flashsale.common.dto.CommonResponse reduce(com.vinci.flashsale.account.dto.AccountReduceRequest request){
+            throw unimplementedMethodException(reduceMethod);
+        }
+
+        @Override
+        public com.vinci.flashsale.common.dto.CommonResponse compensateReduce(com.vinci.flashsale.account.dto.AccountReduceRequest request){
+            throw unimplementedMethodException(compensateReduceMethod);
         }
 
         @Override

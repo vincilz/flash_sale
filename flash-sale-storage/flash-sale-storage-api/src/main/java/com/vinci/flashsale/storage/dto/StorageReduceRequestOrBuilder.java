@@ -4,8 +4,8 @@
 // Protobuf Java Version: 3.25.5
 package com.vinci.flashsale.storage.dto;
 
-public interface StorageDecreaseRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:com.vinci.flashsale.storage.dto.StorageDecreaseRequest)
+public interface StorageReduceRequestOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:com.vinci.flashsale.storage.dto.StorageReduceRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**

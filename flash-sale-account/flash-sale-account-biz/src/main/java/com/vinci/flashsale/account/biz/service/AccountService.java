@@ -1,7 +1,5 @@
 package com.vinci.flashsale.account.biz.service;
 
-import org.springframework.stereotype.Service;
-
 /**
  * @author vinci
  * @version 1.0
@@ -9,6 +7,8 @@ import org.springframework.stereotype.Service;
  */
 public interface AccountService {
 
-    void decrease(String userId, Integer money);
+    void reduce(String userId, Integer money);
+
+    void compensateReduce(String userId, Integer money);
 
 }

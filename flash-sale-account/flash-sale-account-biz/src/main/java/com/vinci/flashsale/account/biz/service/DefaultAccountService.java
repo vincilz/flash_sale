@@ -19,10 +19,20 @@ public class DefaultAccountService implements AccountService {
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public void decrease(String userId, Integer money) {
+    public void reduce(String userId, Integer money) {
         synchronized (DefaultAccountService.class) {
             AccountDO accountDO = accountMapper.findByUserId(userId);
             accountDO.setMoney(accountDO.getMoney() - money);
+            accountMapper.updateById(accountDO);
+        }
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void compensateReduce(String userId, Integer money) {
+        synchronized (DefaultAccountService.class) {
+            AccountDO accountDO = accountMapper.findByUserId(userId);
+            accountDO.setMoney(accountDO.getMoney() + money);
             accountMapper.updateById(accountDO);
         }
     }

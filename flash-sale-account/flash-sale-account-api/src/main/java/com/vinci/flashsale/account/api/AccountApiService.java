@@ -33,7 +33,11 @@ public interface AccountApiService extends org.apache.dubbo.rpc.model.DubboStub 
     String JAVA_SERVICE_NAME = "com.vinci.flashsale.account.api.AccountApiService";
     String SERVICE_NAME = "com.vinci.flashsale.account.api.AccountApiService";
 
-    com.vinci.flashsale.common.dto.CommonResponse decrease(com.vinci.flashsale.account.dto.AccountDecreaseRequest request);
+    com.vinci.flashsale.common.dto.CommonResponse reduce(com.vinci.flashsale.account.dto.AccountReduceRequest request);
 
-    CompletableFuture<com.vinci.flashsale.common.dto.CommonResponse> decreaseAsync(com.vinci.flashsale.account.dto.AccountDecreaseRequest request);
+    CompletableFuture<com.vinci.flashsale.common.dto.CommonResponse> reduceAsync(com.vinci.flashsale.account.dto.AccountReduceRequest request);
+
+    com.vinci.flashsale.common.dto.CommonResponse compensateReduce(com.vinci.flashsale.account.dto.AccountReduceRequest request);
+
+    CompletableFuture<com.vinci.flashsale.common.dto.CommonResponse> compensateReduceAsync(com.vinci.flashsale.account.dto.AccountReduceRequest request);
 }

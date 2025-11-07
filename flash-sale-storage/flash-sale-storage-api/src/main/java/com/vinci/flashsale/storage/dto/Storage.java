@@ -16,10 +16,10 @@ public final class Storage {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_vinci_flashsale_storage_dto_StorageDecreaseRequest_descriptor;
+    internal_static_com_vinci_flashsale_storage_dto_StorageReduceRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_vinci_flashsale_storage_dto_StorageDecreaseRequest_fieldAccessorTable;
+      internal_static_com_vinci_flashsale_storage_dto_StorageReduceRequest_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -30,19 +30,19 @@ public final class Storage {
   static {
     String[] descriptorData = {
       "\n\rstorage.proto\022\037com.vinci.flashsale.sto" +
-      "rage.dto\">\n\026StorageDecreaseRequest\022\025\n\rco" +
-      "mmodityCode\030\001 \001(\t\022\r\n\005count\030\002 \001(\005B\002P\001b\006pr" +
-      "oto3"
+      "rage.dto\"<\n\024StorageReduceRequest\022\025\n\rcomm" +
+      "odityCode\030\001 \001(\t\022\r\n\005count\030\002 \001(\005B\002P\001b\006prot" +
+      "o3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         });
-    internal_static_com_vinci_flashsale_storage_dto_StorageDecreaseRequest_descriptor =
+    internal_static_com_vinci_flashsale_storage_dto_StorageReduceRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_com_vinci_flashsale_storage_dto_StorageDecreaseRequest_fieldAccessorTable = new
+    internal_static_com_vinci_flashsale_storage_dto_StorageReduceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_vinci_flashsale_storage_dto_StorageDecreaseRequest_descriptor,
+        internal_static_com_vinci_flashsale_storage_dto_StorageReduceRequest_descriptor,
         new String[] { "CommodityCode", "Count", });
   }
 

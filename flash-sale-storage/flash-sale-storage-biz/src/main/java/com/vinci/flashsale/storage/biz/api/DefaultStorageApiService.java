@@ -3,7 +3,7 @@ package com.vinci.flashsale.storage.biz.api;
 import com.vinci.flashsale.common.dto.CommonResponse;
 import com.vinci.flashsale.storage.api.StorageApiService;
 import com.vinci.flashsale.storage.biz.service.StorageService;
-import com.vinci.flashsale.storage.dto.StorageDecreaseRequest;
+import com.vinci.flashsale.storage.dto.StorageReduceRequest;
 import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,13 +27,23 @@ public class DefaultStorageApiService implements StorageApiService {
     private StorageService storageService;
 
     @Override
-    public CommonResponse decrease(StorageDecreaseRequest request) {
-        storageService.decrease(request.getCommodityCode(), request.getCount());
+    public CommonResponse reduce(StorageReduceRequest request) {
+        storageService.reduce(request.getCommodityCode(), request.getCount());
         return CommonResponse.newBuilder().setCode(200).setMessage("OK").build();
     }
 
     @Override
-    public CompletableFuture<CommonResponse> decreaseAsync(StorageDecreaseRequest request) {
-        return CompletableFuture.supplyAsync(() -> decrease(request), STORAGE_EXECUTOR);
+    public CompletableFuture<CommonResponse> reduceAsync(StorageReduceRequest request) {
+        return CompletableFuture.supplyAsync(() -> reduce(request), STORAGE_EXECUTOR);
+    }
+
+    @Override
+    public CommonResponse compensateReduce(StorageReduceRequest request) {
+        return null;
+    }
+
+    @Override
+    public CompletableFuture<CommonResponse> compensateReduceAsync(StorageReduceRequest request) {
+        return null;
     }
 }

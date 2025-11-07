@@ -4,8 +4,8 @@
 // Protobuf Java Version: 3.25.5
 package com.vinci.flashsale.account.dto;
 
-public interface AccountDecreaseRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:com.vinci.flashsale.account.dto.AccountDecreaseRequest)
+public interface AccountReduceRequestOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:com.vinci.flashsale.account.dto.AccountReduceRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**

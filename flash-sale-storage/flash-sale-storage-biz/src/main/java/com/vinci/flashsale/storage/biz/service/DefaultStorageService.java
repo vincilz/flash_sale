@@ -19,7 +19,7 @@ public class DefaultStorageService implements StorageService {
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public void decrease(String commodityCode, Integer count) {
+    public void reduce(String commodityCode, Integer count) {
         synchronized (DefaultStorageService.class) {
             StorageDO storageDO = storageMapper.findByCommodityCode(commodityCode);
             storageDO.setCount(storageDO.getCount() - count);

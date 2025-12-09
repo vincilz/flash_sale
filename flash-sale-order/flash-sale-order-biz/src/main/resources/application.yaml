@@ -45,3 +45,22 @@ dubbo:
     timeout: 5000
     group: DUBBO_GROUP
     version: 1.0.0
+
+seata:
+  enabled: true
+  application-id: order-service
+  tx-service-group: default_tx_group
+  service:
+    vgroup-mapping:
+      default_tx_group: default
+  registry:
+    type: nacos
+    nacos:
+      application: seata-server
+      server-addr: 192.168.1.117:8848
+      namespace: public
+      group: SEATA_GROUP
+  saga:
+    enabled: true
+    state-machine:
+      resources: classpath*:statelang/*.json

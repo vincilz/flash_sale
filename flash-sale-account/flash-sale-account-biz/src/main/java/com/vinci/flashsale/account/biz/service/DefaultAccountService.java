@@ -24,6 +24,7 @@ public class DefaultAccountService implements AccountService {
             AccountDO accountDO = accountMapper.findByUserId(userId);
             accountDO.setMoney(accountDO.getMoney() - money);
             accountMapper.updateById(accountDO);
+            throw new RuntimeException("test");
         }
     }
 

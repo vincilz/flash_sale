@@ -19,6 +19,11 @@ spring:
     url: jdbc:mysql://192.168.1.117:3306/flash_sale?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&allowPublicKeyRetrieval=true
     username: root
     password: 123456
+  data:
+    redis:
+      host: 192.168.1.117
+      port: 6379
+      database: 0
 
 mybatis:
   type-aliases-package: com.vinci.flashsale.account.biz.entity
@@ -45,3 +50,17 @@ dubbo:
     timeout: 5000
     group: DUBBO_GROUP
     version: 1.0.0
+
+seata:
+  registry:
+    type: nacos
+    nacos:
+      server-addr: 127.0.0.1:8848
+      namespace: public
+      group: SEATA_GROUP
+  config:
+    type: nacos
+    nacos:
+      server-addr: 127.0.0.1:8848
+      namespace: public
+      group: SEATA_GROUP

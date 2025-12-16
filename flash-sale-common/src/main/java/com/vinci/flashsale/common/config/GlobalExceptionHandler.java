@@ -1,27 +1,30 @@
 package com.vinci.flashsale.common.config;
 
-import com.vinci.flashsale.common.vo.CommonResult;
+import com.vinci.flashsale.common.dto.CommonResponse;
+import com.vinci.flashsale.common.exception.GlobalExceptionConstant;
+import com.vinci.flashsale.common.utils.CommonResponseUtils;
+import org.apache.logging.log4j.util.Strings;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.bind.support.WebExchangeBindException;
-import reactor.core.publisher.Mono;
+
+import java.util.List;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(WebExchangeBindException.class)
-    public Mono<CommonResult<String>> handleValidationException(WebExchangeBindException ex) {
-        String msg = ex.getAllErrors()
-                .stream()
+    public CommonResponse handleValidationException(WebExchangeBindException ex) {
+        List<String> errorParamList = ex.getAllErrors().stream()
                 .map(ObjectError::getDefaultMessage)
-                .findFirst()
-                .orElse("参数验证失败");
-        return Mono.just(CommonResult.failed(400, msg));
+                .toList();
+        String errorMsg = Strings.join(errorParamList, ',');
+        return CommonResponseUtils.failed(GlobalExceptionConstant.VALID_EXCEPTION_CODE, errorMsg);
     }
 
     @ExceptionHandler(Throwable.class)
-    public Mono<CommonResult<String>> handleGlobalException(Throwable ex) {
-        return Mono.just(CommonResult.failed(500, ex.getMessage()));
+    public CommonResponse handleGlobalException(Throwable ex) {
+        return CommonResponseUtils.failed(ex);
     }
 }

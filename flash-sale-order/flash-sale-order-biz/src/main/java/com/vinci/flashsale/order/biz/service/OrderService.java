@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
  */
 public interface OrderService {
 
-    void orderPurchase(OrderPurchaseReqVO reqVO);
+    void orderPurchase(String userId, String commodityCode, Integer count, Integer money);
 
     void create(String userId, String commodityCode, Integer count, Integer money);
 

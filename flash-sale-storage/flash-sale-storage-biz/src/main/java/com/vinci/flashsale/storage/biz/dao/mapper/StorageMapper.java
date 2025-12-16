@@ -1,8 +1,8 @@
-package com.vinci.flashsale.storage.biz.mapper;
+package com.vinci.flashsale.storage.biz.dao.mapper;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.vinci.flashsale.storage.biz.entity.StorageDO;
+import com.vinci.flashsale.storage.biz.dao.dataobj.StorageDO;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

@@ -29,19 +29,19 @@ public class DefaultOrderService implements OrderService {
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public void orderPurchase(OrderPurchaseReqVO reqVO) {
+    public void orderPurchase(String userId, String commodityCode, Integer count, Integer money) {
         // 创建订单
-        create(reqVO.getUserId(), reqVO.getCommodityCode(), reqVO.getCount(), reqVO.getMoney());
+        create(userId, commodityCode, count, money);
         // 扣减库存
         StorageReduceRequest storageDecreaseRequest = StorageReduceRequest.newBuilder()
-                .setCommodityCode(reqVO.getCommodityCode())
-                .setCount(reqVO.getCount())
+                .setCommodityCode(commodityCode)
+                .setCount(count)
                 .build();
         storageApiService.reduce(storageDecreaseRequest);
         // 扣减账户
         AccountReduceRequest accountDecreaseRequest = AccountReduceRequest.newBuilder()
-                .setUserId(reqVO.getUserId())
-                .setMoney(reqVO.getMoney())
+                .setUserId(userId)
+                .setMoney(money)
                 .build();
         accountApiService.reduce(accountDecreaseRequest);
     }

@@ -1,4 +1,4 @@
-package com.vinci.flashsale.account.biz.entity;
+package com.vinci.flashsale.account.biz.dao.dataobj;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;

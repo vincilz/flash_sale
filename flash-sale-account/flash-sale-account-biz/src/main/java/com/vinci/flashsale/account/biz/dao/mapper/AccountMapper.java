@@ -1,8 +1,8 @@
-package com.vinci.flashsale.account.biz.mapper;
+package com.vinci.flashsale.account.biz.dao.mapper;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.vinci.flashsale.account.biz.entity.AccountDO;
+import com.vinci.flashsale.account.biz.dao.dataobj.AccountDO;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

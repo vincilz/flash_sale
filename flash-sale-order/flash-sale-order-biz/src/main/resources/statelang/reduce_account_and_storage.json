@@ -1,21 +1,21 @@
 {
-  "Name": "reduceStorageAndAccount",
-  "Comment": "扣减库存和账户金额",
-  "StartState": "ReduceStorage",
-  "TenantId": "000001",
-  "Version": "1.0.0",
+  "Name": "reduceAccountAndStorage",
+  "Comment": "reduce storage then reduce account in a transaction",
+  "StartState": "ReduceInventory",
+  "Version": "0.0.1",
   "States": {
-    "ReduceStorage": {
+    "ReduceInventory": {
       "Type": "ServiceTask",
-      "ServiceName": "storageApiService",
+      "ServiceName": "inventoryAction",
       "ServiceMethod": "reduce",
-      "CompensateState": "CompensateReduceStorage",
+      "CompensateState": "CompensateReduceInventory",
       "Next": "ChoiceState",
       "Input": [
-        "$.[storageRequest]"
+        "$.[businessKey]",
+        "$.[count]"
       ],
       "Output": {
-        "reduceStorageResult": "$.#root"
+        "reduceInventoryResult": "$.#root"
       },
       "Status": {
         "#root == true": "SU",
@@ -27,22 +27,26 @@
       "Type": "Choice",
       "Choices": [
         {
-          "Expression": "[reduceStorageResult] == true",
-          "Next": "ReduceAccount"
+          "Expression": "[reduceInventoryResult] == true",
+          "Next": "ReduceBalance"
         }
       ],
       "Default": "Fail"
     },
-    "ReduceAccount": {
+    "ReduceBalance": {
       "Type": "ServiceTask",
-      "ServiceName": "accountApiService",
+      "ServiceName": "balanceAction",
       "ServiceMethod": "reduce",
-      "CompensateState": "CompensateReduceAccount",
+      "CompensateState": "CompensateReduceBalance",
       "Input": [
-        "$.[accountRequest]"
+        "$.[businessKey]",
+        "$.[amount]",
+        {
+          "throwException": "$.[mockReduceBalanceFail]"
+        }
       ],
       "Output": {
-        "reduceAccountResult": "$.#root"
+        "compensateReduceBalanceResult": "$.#root"
       },
       "Status": {
         "#root == true": "SU",
@@ -59,17 +63,17 @@
       ],
       "Next": "Succeed"
     },
-    "CompensateReduceStorage": {
+    "CompensateReduceInventory": {
       "Type": "ServiceTask",
-      "ServiceName": "storageApiService",
+      "ServiceName": "inventoryAction",
       "ServiceMethod": "compensateReduce",
       "Input": [
         "$.[businessKey]"
       ]
     },
-    "CompensateReduceAccount": {
+    "CompensateReduceBalance": {
       "Type": "ServiceTask",
-      "ServiceName": "accountApiService",
+      "ServiceName": "balanceAction",
       "ServiceMethod": "compensateReduce",
       "Input": [
         "$.[businessKey]"

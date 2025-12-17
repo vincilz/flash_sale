@@ -1,16 +1,11 @@
 package com.vinci.flashsale.order.biz.service;
 
-import com.vinci.flashsale.order.biz.entity.OrderPurchaseReqVO;
-import org.springframework.stereotype.Service;
-
 /**
  * @author vinci
  * @version 1.0
- * @date 2025/10/28
+ * @date 2025/12/17
  */
 public interface OrderService {
-
-    void orderPurchase(String userId, String commodityCode, Integer count, Integer money);
 
     void create(String userId, String commodityCode, Integer count, Integer money);
 

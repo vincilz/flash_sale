@@ -30,9 +30,9 @@ public class OrderDubboRouter {
     @PostMapping("/purchase")
     @SentinelResource(
             value = "order_purchase",
-            blockHandler = "handlerBlock",
+            blockHandler = "purchaseBlock",
             blockHandlerClass = OrderBlockHandler.class,
-            fallback = "handlerFallback"
+            fallback = "purchaseFallback"
             , fallbackClass = OrderBlockHandler.class
     )
     public Mono<CommonResult<Boolean>> purchase(@Valid @RequestBody OrderPurchaseReqVO reqVO) {

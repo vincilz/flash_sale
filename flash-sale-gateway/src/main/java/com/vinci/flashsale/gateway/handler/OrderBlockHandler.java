@@ -15,7 +15,7 @@ import reactor.core.publisher.Mono;
 @Data
 public class OrderBlockHandler {
 
-    public static Mono<CommonResult<Boolean>> handlerBlock(
+    public static Mono<CommonResult<Boolean>> purchaseBlock(
             OrderPurchaseReqVO reqVO,
             BlockException ex) {
 
@@ -25,7 +25,7 @@ public class OrderBlockHandler {
         ));
     }
 
-    public static Mono<CommonResult<Boolean>> handlerFallback(
+    public static Mono<CommonResult<Boolean>> purchaseFallback(
             OrderPurchaseReqVO reqVO,
             Throwable ex) {
 

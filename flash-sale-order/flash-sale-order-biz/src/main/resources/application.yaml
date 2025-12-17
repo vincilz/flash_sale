@@ -25,6 +25,23 @@ mybatis:
   configuration:
     map-underscore-to-camel-case: true
 
+seata:
+  enabled: true
+  tx-service-group: default_tx_group
+  registry:
+    type: nacos
+    nacos:
+      group: SEATA_GROUP
+      server-addr: 192.168.1.117:8848
+      application: seata-server
+      namespace: public
+  config:
+    type: nacos
+    nacos:
+      group: SEATA_GROUP
+      server-addr: 192.168.1.117:8848
+      data-id: seata.properties
+
 dubbo:
   application:
     name: order-api-service

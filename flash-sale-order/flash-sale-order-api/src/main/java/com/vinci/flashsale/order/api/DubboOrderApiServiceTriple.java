@@ -63,24 +63,24 @@ public final class DubboOrderApiServiceTriple {
         return new OrderApiServiceStub((Invoker<OrderApiService>)invoker);
     }
 
-    private static final StubMethodDescriptor decreaseMethod = new StubMethodDescriptor("Decrease",
+    private static final StubMethodDescriptor purchaseMethod = new StubMethodDescriptor("Purchase",
     com.vinci.flashsale.order.dto.OrderPurchaseRequest.class, com.vinci.flashsale.common.dto.CommonResponse.class, MethodDescriptor.RpcType.UNARY,
     obj -> ((Message) obj).toByteArray(), obj -> ((Message) obj).toByteArray(), com.vinci.flashsale.order.dto.OrderPurchaseRequest::parseFrom,
     com.vinci.flashsale.common.dto.CommonResponse::parseFrom);
 
-    private static final StubMethodDescriptor decreaseAsyncMethod = new StubMethodDescriptor("Decrease",
+    private static final StubMethodDescriptor purchaseAsyncMethod = new StubMethodDescriptor("Purchase",
     com.vinci.flashsale.order.dto.OrderPurchaseRequest.class, CompletableFuture.class, MethodDescriptor.RpcType.UNARY,
     obj -> ((Message) obj).toByteArray(), obj -> ((Message) obj).toByteArray(), com.vinci.flashsale.order.dto.OrderPurchaseRequest::parseFrom,
     com.vinci.flashsale.common.dto.CommonResponse::parseFrom);
 
-    private static final StubMethodDescriptor decreaseProxyAsyncMethod = new StubMethodDescriptor("DecreaseAsync",
+    private static final StubMethodDescriptor purchaseProxyAsyncMethod = new StubMethodDescriptor("PurchaseAsync",
     com.vinci.flashsale.order.dto.OrderPurchaseRequest.class, com.vinci.flashsale.common.dto.CommonResponse.class, MethodDescriptor.RpcType.UNARY,
     obj -> ((Message) obj).toByteArray(), obj -> ((Message) obj).toByteArray(), com.vinci.flashsale.order.dto.OrderPurchaseRequest::parseFrom,
     com.vinci.flashsale.common.dto.CommonResponse::parseFrom);
 
     static{
-        serviceDescriptor.addMethod(decreaseMethod);
-        serviceDescriptor.addMethod(decreaseProxyAsyncMethod);
+        serviceDescriptor.addMethod(purchaseMethod);
+        serviceDescriptor.addMethod(purchaseProxyAsyncMethod);
     }
 
     public static class OrderApiServiceStub implements OrderApiService, Destroyable {
@@ -96,16 +96,16 @@ public final class DubboOrderApiServiceTriple {
          }
 
         @Override
-        public com.vinci.flashsale.common.dto.CommonResponse decrease(com.vinci.flashsale.order.dto.OrderPurchaseRequest request){
-            return StubInvocationUtil.unaryCall(invoker, decreaseMethod, request);
+        public com.vinci.flashsale.common.dto.CommonResponse purchase(com.vinci.flashsale.order.dto.OrderPurchaseRequest request){
+            return StubInvocationUtil.unaryCall(invoker, purchaseMethod, request);
         }
 
-        public CompletableFuture<com.vinci.flashsale.common.dto.CommonResponse> decreaseAsync(com.vinci.flashsale.order.dto.OrderPurchaseRequest request){
-            return StubInvocationUtil.unaryCall(invoker, decreaseAsyncMethod, request);
+        public CompletableFuture<com.vinci.flashsale.common.dto.CommonResponse> purchaseAsync(com.vinci.flashsale.order.dto.OrderPurchaseRequest request){
+            return StubInvocationUtil.unaryCall(invoker, purchaseAsyncMethod, request);
         }
 
-        public void decrease(com.vinci.flashsale.order.dto.OrderPurchaseRequest request, StreamObserver<com.vinci.flashsale.common.dto.CommonResponse> responseObserver){
-            StubInvocationUtil.unaryCall(invoker, decreaseMethod , request, responseObserver);
+        public void purchase(com.vinci.flashsale.order.dto.OrderPurchaseRequest request, StreamObserver<com.vinci.flashsale.common.dto.CommonResponse> responseObserver){
+            StubInvocationUtil.unaryCall(invoker, purchaseMethod , request, responseObserver);
         }
     }
 
@@ -126,15 +126,15 @@ public final class DubboOrderApiServiceTriple {
         }
 
         @Override
-        public CompletableFuture<com.vinci.flashsale.common.dto.CommonResponse> decreaseAsync(com.vinci.flashsale.order.dto.OrderPurchaseRequest request){
-                return CompletableFuture.completedFuture(decrease(request));
+        public CompletableFuture<com.vinci.flashsale.common.dto.CommonResponse> purchaseAsync(com.vinci.flashsale.order.dto.OrderPurchaseRequest request){
+                return CompletableFuture.completedFuture(purchase(request));
         }
 
         // This server stream type unary method is <b>only</b> used for generated stub to support async unary method.
         // It will not be called if you are NOT using Dubbo3 generated triple stub and <b>DO NOT</b> implement this method.
 
-        public void decrease(com.vinci.flashsale.order.dto.OrderPurchaseRequest request, StreamObserver<com.vinci.flashsale.common.dto.CommonResponse> responseObserver){
-            decreaseAsync(request).whenComplete((r, t) -> {
+        public void purchase(com.vinci.flashsale.order.dto.OrderPurchaseRequest request, StreamObserver<com.vinci.flashsale.common.dto.CommonResponse> responseObserver){
+            purchaseAsync(request).whenComplete((r, t) -> {
                 if (t != null) {
                     responseObserver.onError(t);
                 } else {
@@ -150,22 +150,22 @@ public final class DubboOrderApiServiceTriple {
             .getExtensionLoader(PathResolver.class)
             .getDefaultExtension();
             Map<String, StubMethodHandler<?, ?>> handlers = new HashMap<>();
-            pathResolver.addNativeStub( "/" + SERVICE_NAME + "/Decrease");
-            pathResolver.addNativeStub( "/" + SERVICE_NAME + "/DecreaseAsync");
+            pathResolver.addNativeStub( "/" + SERVICE_NAME + "/Purchase");
+            pathResolver.addNativeStub( "/" + SERVICE_NAME + "/PurchaseAsync");
             // for compatibility
-            pathResolver.addNativeStub( "/" + JAVA_SERVICE_NAME + "/Decrease");
-            pathResolver.addNativeStub( "/" + JAVA_SERVICE_NAME + "/DecreaseAsync");
-            BiConsumer<com.vinci.flashsale.order.dto.OrderPurchaseRequest, StreamObserver<com.vinci.flashsale.common.dto.CommonResponse>> decreaseFunc = this::decrease;
-            handlers.put(decreaseMethod.getMethodName(), new UnaryStubMethodHandler<>(decreaseFunc));
-            BiConsumer<com.vinci.flashsale.order.dto.OrderPurchaseRequest, StreamObserver<com.vinci.flashsale.common.dto.CommonResponse>> decreaseAsyncFunc = syncToAsync(this::decrease);
-            handlers.put(decreaseProxyAsyncMethod.getMethodName(), new UnaryStubMethodHandler<>(decreaseAsyncFunc));
+            pathResolver.addNativeStub( "/" + JAVA_SERVICE_NAME + "/Purchase");
+            pathResolver.addNativeStub( "/" + JAVA_SERVICE_NAME + "/PurchaseAsync");
+            BiConsumer<com.vinci.flashsale.order.dto.OrderPurchaseRequest, StreamObserver<com.vinci.flashsale.common.dto.CommonResponse>> purchaseFunc = this::purchase;
+            handlers.put(purchaseMethod.getMethodName(), new UnaryStubMethodHandler<>(purchaseFunc));
+            BiConsumer<com.vinci.flashsale.order.dto.OrderPurchaseRequest, StreamObserver<com.vinci.flashsale.common.dto.CommonResponse>> purchaseAsyncFunc = syncToAsync(this::purchase);
+            handlers.put(purchaseProxyAsyncMethod.getMethodName(), new UnaryStubMethodHandler<>(purchaseAsyncFunc));
 
             return new StubInvoker<>(this, url, OrderApiService.class, handlers);
         }
 
         @Override
-        public com.vinci.flashsale.common.dto.CommonResponse decrease(com.vinci.flashsale.order.dto.OrderPurchaseRequest request){
-            throw unimplementedMethodException(decreaseMethod);
+        public com.vinci.flashsale.common.dto.CommonResponse purchase(com.vinci.flashsale.order.dto.OrderPurchaseRequest request){
+            throw unimplementedMethodException(purchaseMethod);
         }
 
         @Override

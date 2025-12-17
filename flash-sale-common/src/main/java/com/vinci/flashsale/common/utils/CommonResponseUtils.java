@@ -12,6 +12,13 @@ import com.vinci.flashsale.common.exception.GlobalExceptionRecord;
  */
 public class CommonResponseUtils {
 
+    public static CommonResponse success() {
+        return CommonResponse.newBuilder()
+                .setCode(0)
+                .setMessage("success")
+                .build();
+    }
+
     public static CommonResponse failed(Throwable throwable) {
         if (throwable instanceof GlobalException ge) {
             return failed(ge.getExceptionRecord());

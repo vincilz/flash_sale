@@ -52,15 +52,18 @@ dubbo:
     version: 1.0.0
 
 seata:
+  enabled: true
+  tx-service-group: default_tx_group
   registry:
     type: nacos
     nacos:
-      server-addr: 127.0.0.1:8848
-      namespace: public
       group: SEATA_GROUP
+      server-addr: 192.168.1.117:8848
+      application: seata-server
+      namespace: public
   config:
     type: nacos
     nacos:
-      server-addr: 127.0.0.1:8848
-      namespace: public
       group: SEATA_GROUP
+      server-addr: 192.168.1.117:8848
+      data-id: seata.properties

@@ -1,6 +1,7 @@
 package com.vinci.flashsale.order.biz.api;
 
 import com.vinci.flashsale.common.dto.CommonResponse;
+import com.vinci.flashsale.common.utils.CommonResponseUtils;
 import com.vinci.flashsale.order.api.OrderApiService;
 import com.vinci.flashsale.order.biz.service.OrderService;
 import com.vinci.flashsale.order.dto.OrderPurchaseRequest;
@@ -28,13 +29,18 @@ public class DefaultOrderApiService implements OrderApiService {
 
 
     @Override
-    public CommonResponse decrease(OrderPurchaseRequest request) {
-        orderService.orderPurchase();
-        return null;
+    public CommonResponse purchase(OrderPurchaseRequest request) {
+        orderService.orderPurchase(
+                request.getUserId(),
+                request.getCommodityCode(),
+                request.getCount(),
+                request.getMoney()
+        );
+        return CommonResponseUtils.success();
     }
 
     @Override
-    public CompletableFuture<CommonResponse> decreaseAsync(OrderPurchaseRequest request) {
-        return null;
+    public CompletableFuture<CommonResponse> purchaseAsync(OrderPurchaseRequest request) {
+        return CompletableFuture.supplyAsync(() -> purchase(request), ORDER_EXECUTOR);
     }
 }

@@ -33,7 +33,7 @@ public interface OrderApiService extends org.apache.dubbo.rpc.model.DubboStub {
     String JAVA_SERVICE_NAME = "com.vinci.flashsale.order.api.OrderApiService";
     String SERVICE_NAME = "com.vinci.flashsale.order.api.OrderApiService";
 
-    com.vinci.flashsale.common.dto.CommonResponse decrease(com.vinci.flashsale.order.dto.OrderPurchaseRequest request);
+    com.vinci.flashsale.common.dto.CommonResponse purchase(com.vinci.flashsale.order.dto.OrderPurchaseRequest request);
 
-    CompletableFuture<com.vinci.flashsale.common.dto.CommonResponse> decreaseAsync(com.vinci.flashsale.order.dto.OrderPurchaseRequest request);
+    CompletableFuture<com.vinci.flashsale.common.dto.CommonResponse> purchaseAsync(com.vinci.flashsale.order.dto.OrderPurchaseRequest request);
 }

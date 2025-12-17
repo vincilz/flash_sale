@@ -26,7 +26,7 @@ public final class OrderSerivce {
     String[] descriptorData = {
       "\n\023order_serivce.proto\022\035com.vinci.flashsa" +
       "le.order.api\032\013order.proto\032\014common.proto2" +
-      "\202\001\n\017OrderApiService\022o\n\010Decrease\0223.com.vi" +
+      "\202\001\n\017OrderApiService\022o\n\010Purchase\0223.com.vi" +
       "nci.flashsale.order.dto.OrderPurchaseReq" +
       "uest\032..com.vinci.flashsale.common.dto.Co" +
       "mmonResponseB\002P\001b\006proto3"

@@ -15,7 +15,7 @@ import lombok.Data;
 public class OrderDO {
 
     @TableId
-    private Integer id;
+    private Long id;
     private String userId;
     private String commodityCode;
     private Integer count;

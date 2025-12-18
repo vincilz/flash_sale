@@ -32,6 +32,7 @@
         <protobuf.version>3.19.6</protobuf.version>
         <redisson.version>3.38.0</redisson.version>
         <fastjson.verison>2.0.60</fastjson.verison>
+        <mybatis.spring.boot.version>3.0.0</mybatis.spring.boot.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -61,6 +62,11 @@
                 <version>1.0.0</version>
             </dependency>
             <dependency>
+                <groupId>com.vinci.flash-sale.dependency</groupId>
+                <artifactId>flash-sale-dependency-mybatis</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+            <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
                 <version>${spring-boot.version}</version>
@@ -85,6 +91,11 @@
                         <artifactId>mybatis-spring</artifactId>
                     </exclusion>
                 </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.spring.boot.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.mybatis</groupId>

@@ -1,6 +1,6 @@
 package com.vinci.flashsale.storage.biz.service;
 
-import com.vinci.flashsale.RedisLock;
+import com.vinci.flashsale.lock.RedisLock;
 import com.vinci.flashsale.common.exception.GlobalException;
 import com.vinci.flashsale.common.exception.GlobalExceptionConstant;
 import com.vinci.flashsale.storage.biz.constant.BizConstant;
@@ -29,17 +29,15 @@ public class DefaultStorageService implements StorageService {
     public void reduce(String commodityCode, Integer count) {
         RLock lock = redisLock.getLock(BizConstant.BizType.STORAGE_TYPE, BizConstant.BizId.REDUCE_ID, commodityCode);
         try {
-            boolean locked = redisLock.tryLock(lock);
+            boolean locked = lock.tryLock();
             if (!locked) {
                 throw new GlobalException(GlobalExceptionConstant.LOCK_EXCEPTION);
             }
             StorageDO storageDO = storageMapper.findByCommodityCode(commodityCode);
             storageDO.setCount(storageDO.getCount() - count);
             storageMapper.updateById(storageDO);
-        } catch (InterruptedException exception) {
-            throw new GlobalException(exception);
         } finally {
-            redisLock.unlock(lock);
+            lock.unlock();
         }
     }
 

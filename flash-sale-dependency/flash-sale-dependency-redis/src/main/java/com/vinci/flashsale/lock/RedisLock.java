@@ -1,4 +1,4 @@
-package com.vinci.flashsale;
+package com.vinci.flashsale.lock;
 
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
@@ -22,14 +22,6 @@ public class RedisLock {
 
     public RLock getLock(String bizType, String bizId, String userId) {
         return redissonClient.getLock(String.format(KEY_PATTERN, bizType, bizId, userId));
-    }
-
-    public boolean tryLock(RLock lock) throws InterruptedException {
-        return lock.tryLock(10, TimeUnit.MINUTES);
-    }
-
-    public void unlock(RLock lock) {
-        lock.unlock();
     }
 
 }

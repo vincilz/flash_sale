@@ -62,3 +62,7 @@ dubbo:
     timeout: 5000
     group: DUBBO_GROUP
     version: 1.0.0
+
+info:
+  work-id: ${WORK_ID:1}
+  data-center-id: ${DATA_CENTER_ID:1}

@@ -17,6 +17,7 @@
 
     <modules>
         <module>flash-sale-dependency-redis</module>
+        <module>flash-sale-dependency-mybatis</module>
     </modules>
 
 

@@ -1,6 +1,6 @@
 package com.vinci.flashsale.account.biz.service;
 
-import com.vinci.flashsale.RedisLock;
+import com.vinci.flashsale.lock.RedisLock;
 import com.vinci.flashsale.account.biz.constant.BizConstant;
 import com.vinci.flashsale.account.biz.dao.dataobj.AccountDO;
 import com.vinci.flashsale.account.biz.dao.mapper.AccountMapper;
@@ -40,17 +40,15 @@ public class DefaultAccountService implements AccountService {
     private void changeUserMoney(String userId, Integer money) {
         RLock lock = redisLock.getLock(BizConstant.BizType.ACCOUNT_TYPE, BizConstant.BizId.REDUCE_ID, userId);
         try {
-            boolean locked = redisLock.tryLock(lock);
+            boolean locked = lock.tryLock();
             if (!locked) {
                 throw new GlobalException(GlobalExceptionConstant.LOCK_EXCEPTION);
             }
             AccountDO accountDO = accountMapper.findByUserId(userId);
             accountDO.setMoney(accountDO.getMoney() + money);
             accountMapper.updateById(accountDO);
-        } catch (InterruptedException exception) {
-            throw new GlobalException(exception);
         } finally {
-            redisLock.unlock(lock);
+            lock.unlock();
         }
     }
 

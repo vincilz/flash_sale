@@ -17,8 +17,6 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private OrderPurchaseRequest() {
-    userId_ = "";
-    commodityCode_ = "";
   }
 
   @Override
@@ -41,104 +39,37 @@ private static final long serialVersionUID = 0L;
             OrderPurchaseRequest.class, Builder.class);
   }
 
-  public static final int USER_ID_FIELD_NUMBER = 1;
-  @SuppressWarnings("serial")
-  private volatile Object userId_ = "";
+  public static final int PRODUCTID_FIELD_NUMBER = 1;
+  private long productId_ = 0L;
   /**
-   * <code>string user_id = 1;</code>
-   * @return The userId.
+   * <code>int64 productId = 1;</code>
+   * @return The productId.
    */
   @Override
-  public String getUserId() {
-    Object ref = userId_;
-    if (ref instanceof String) {
-      return (String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      String s = bs.toStringUtf8();
-      userId_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string user_id = 1;</code>
-   * @return The bytes for userId.
-   */
-  @Override
-  public com.google.protobuf.ByteString
-      getUserIdBytes() {
-    Object ref = userId_;
-    if (ref instanceof String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (String) ref);
-      userId_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public long getProductId() {
+    return productId_;
   }
 
-  public static final int MONEY_FIELD_NUMBER = 2;
-  private int money_ = 0;
+  public static final int TOTALPRICE_FIELD_NUMBER = 2;
+  private long totalPrice_ = 0L;
   /**
-   * <code>int32 money = 2;</code>
-   * @return The money.
+   * <code>int64 totalPrice = 2;</code>
+   * @return The totalPrice.
    */
   @Override
-  public int getMoney() {
-    return money_;
+  public long getTotalPrice() {
+    return totalPrice_;
   }
 
-  public static final int COMMODITY_CODE_FIELD_NUMBER = 3;
-  @SuppressWarnings("serial")
-  private volatile Object commodityCode_ = "";
+  public static final int QUANTITY_FIELD_NUMBER = 3;
+  private int quantity_ = 0;
   /**
-   * <code>string commodity_code = 3;</code>
-   * @return The commodityCode.
+   * <code>int32 quantity = 3;</code>
+   * @return The quantity.
    */
   @Override
-  public String getCommodityCode() {
-    Object ref = commodityCode_;
-    if (ref instanceof String) {
-      return (String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      String s = bs.toStringUtf8();
-      commodityCode_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string commodity_code = 3;</code>
-   * @return The bytes for commodityCode.
-   */
-  @Override
-  public com.google.protobuf.ByteString
-      getCommodityCodeBytes() {
-    Object ref = commodityCode_;
-    if (ref instanceof String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (String) ref);
-      commodityCode_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int COUNT_FIELD_NUMBER = 4;
-  private int count_ = 0;
-  /**
-   * <code>int32 count = 4;</code>
-   * @return The count.
-   */
-  @Override
-  public int getCount() {
-    return count_;
+  public int getQuantity() {
+    return quantity_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -155,17 +86,14 @@ private static final long serialVersionUID = 0L;
   @Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userId_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, userId_);
+    if (productId_ != 0L) {
+      output.writeInt64(1, productId_);
     }
-    if (money_ != 0) {
-      output.writeInt32(2, money_);
+    if (totalPrice_ != 0L) {
+      output.writeInt64(2, totalPrice_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(commodityCode_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, commodityCode_);
-    }
-    if (count_ != 0) {
-      output.writeInt32(4, count_);
+    if (quantity_ != 0) {
+      output.writeInt32(3, quantity_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -176,19 +104,17 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userId_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, userId_);
-    }
-    if (money_ != 0) {
+    if (productId_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(2, money_);
+        .computeInt64Size(1, productId_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(commodityCode_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, commodityCode_);
-    }
-    if (count_ != 0) {
+    if (totalPrice_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(4, count_);
+        .computeInt64Size(2, totalPrice_);
+    }
+    if (quantity_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(3, quantity_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -205,14 +131,12 @@ private static final long serialVersionUID = 0L;
     }
     OrderPurchaseRequest other = (OrderPurchaseRequest) obj;
 
-    if (!getUserId()
-        .equals(other.getUserId())) return false;
-    if (getMoney()
-        != other.getMoney()) return false;
-    if (!getCommodityCode()
-        .equals(other.getCommodityCode())) return false;
-    if (getCount()
-        != other.getCount()) return false;
+    if (getProductId()
+        != other.getProductId()) return false;
+    if (getTotalPrice()
+        != other.getTotalPrice()) return false;
+    if (getQuantity()
+        != other.getQuantity()) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -224,14 +148,14 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getUserId().hashCode();
-    hash = (37 * hash) + MONEY_FIELD_NUMBER;
-    hash = (53 * hash) + getMoney();
-    hash = (37 * hash) + COMMODITY_CODE_FIELD_NUMBER;
-    hash = (53 * hash) + getCommodityCode().hashCode();
-    hash = (37 * hash) + COUNT_FIELD_NUMBER;
-    hash = (53 * hash) + getCount();
+    hash = (37 * hash) + PRODUCTID_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getProductId());
+    hash = (37 * hash) + TOTALPRICE_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getTotalPrice());
+    hash = (37 * hash) + QUANTITY_FIELD_NUMBER;
+    hash = (53 * hash) + getQuantity();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -363,10 +287,9 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
-      userId_ = "";
-      money_ = 0;
-      commodityCode_ = "";
-      count_ = 0;
+      productId_ = 0L;
+      totalPrice_ = 0L;
+      quantity_ = 0;
       return this;
     }
 
@@ -401,16 +324,13 @@ private static final long serialVersionUID = 0L;
     private void buildPartial0(OrderPurchaseRequest result) {
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.userId_ = userId_;
+        result.productId_ = productId_;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.money_ = money_;
+        result.totalPrice_ = totalPrice_;
       }
       if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.commodityCode_ = commodityCode_;
-      }
-      if (((from_bitField0_ & 0x00000008) != 0)) {
-        result.count_ = count_;
+        result.quantity_ = quantity_;
       }
     }
 
@@ -458,21 +378,14 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(OrderPurchaseRequest other) {
       if (other == OrderPurchaseRequest.getDefaultInstance()) return this;
-      if (!other.getUserId().isEmpty()) {
-        userId_ = other.userId_;
-        bitField0_ |= 0x00000001;
-        onChanged();
+      if (other.getProductId() != 0L) {
+        setProductId(other.getProductId());
       }
-      if (other.getMoney() != 0) {
-        setMoney(other.getMoney());
+      if (other.getTotalPrice() != 0L) {
+        setTotalPrice(other.getTotalPrice());
       }
-      if (!other.getCommodityCode().isEmpty()) {
-        commodityCode_ = other.commodityCode_;
-        bitField0_ |= 0x00000004;
-        onChanged();
-      }
-      if (other.getCount() != 0) {
-        setCount(other.getCount());
+      if (other.getQuantity() != 0) {
+        setQuantity(other.getQuantity());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -500,26 +413,21 @@ private static final long serialVersionUID = 0L;
             case 0:
               done = true;
               break;
-            case 10: {
-              userId_ = input.readStringRequireUtf8();
+            case 8: {
+              productId_ = input.readInt64();
               bitField0_ |= 0x00000001;
               break;
-            } // case 10
+            } // case 8
             case 16: {
-              money_ = input.readInt32();
+              totalPrice_ = input.readInt64();
               bitField0_ |= 0x00000002;
               break;
             } // case 16
-            case 26: {
-              commodityCode_ = input.readStringRequireUtf8();
+            case 24: {
+              quantity_ = input.readInt32();
               bitField0_ |= 0x00000004;
               break;
-            } // case 26
-            case 32: {
-              count_ = input.readInt32();
-              bitField0_ |= 0x00000008;
-              break;
-            } // case 32
+            } // case 24
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -537,210 +445,98 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private Object userId_ = "";
+    private long productId_ ;
     /**
-     * <code>string user_id = 1;</code>
-     * @return The userId.
-     */
-    public String getUserId() {
-      Object ref = userId_;
-      if (!(ref instanceof String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        userId_ = s;
-        return s;
-      } else {
-        return (String) ref;
-      }
-    }
-    /**
-     * <code>string user_id = 1;</code>
-     * @return The bytes for userId.
-     */
-    public com.google.protobuf.ByteString
-        getUserIdBytes() {
-      Object ref = userId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
-        userId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string user_id = 1;</code>
-     * @param value The userId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setUserId(
-        String value) {
-      if (value == null) { throw new NullPointerException(); }
-      userId_ = value;
-      bitField0_ |= 0x00000001;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string user_id = 1;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearUserId() {
-      userId_ = getDefaultInstance().getUserId();
-      bitField0_ = (bitField0_ & ~0x00000001);
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string user_id = 1;</code>
-     * @param value The bytes for userId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setUserIdBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
-      userId_ = value;
-      bitField0_ |= 0x00000001;
-      onChanged();
-      return this;
-    }
-
-    private int money_ ;
-    /**
-     * <code>int32 money = 2;</code>
-     * @return The money.
+     * <code>int64 productId = 1;</code>
+     * @return The productId.
      */
     @Override
-    public int getMoney() {
-      return money_;
+    public long getProductId() {
+      return productId_;
     }
     /**
-     * <code>int32 money = 2;</code>
-     * @param value The money to set.
+     * <code>int64 productId = 1;</code>
+     * @param value The productId to set.
      * @return This builder for chaining.
      */
-    public Builder setMoney(int value) {
+    public Builder setProductId(long value) {
 
-      money_ = value;
+      productId_ = value;
+      bitField0_ |= 0x00000001;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 productId = 1;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearProductId() {
+      bitField0_ = (bitField0_ & ~0x00000001);
+      productId_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private long totalPrice_ ;
+    /**
+     * <code>int64 totalPrice = 2;</code>
+     * @return The totalPrice.
+     */
+    @Override
+    public long getTotalPrice() {
+      return totalPrice_;
+    }
+    /**
+     * <code>int64 totalPrice = 2;</code>
+     * @param value The totalPrice to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTotalPrice(long value) {
+
+      totalPrice_ = value;
       bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
-     * <code>int32 money = 2;</code>
+     * <code>int64 totalPrice = 2;</code>
      * @return This builder for chaining.
      */
-    public Builder clearMoney() {
+    public Builder clearTotalPrice() {
       bitField0_ = (bitField0_ & ~0x00000002);
-      money_ = 0;
+      totalPrice_ = 0L;
       onChanged();
       return this;
     }
 
-    private Object commodityCode_ = "";
+    private int quantity_ ;
     /**
-     * <code>string commodity_code = 3;</code>
-     * @return The commodityCode.
-     */
-    public String getCommodityCode() {
-      Object ref = commodityCode_;
-      if (!(ref instanceof String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        commodityCode_ = s;
-        return s;
-      } else {
-        return (String) ref;
-      }
-    }
-    /**
-     * <code>string commodity_code = 3;</code>
-     * @return The bytes for commodityCode.
-     */
-    public com.google.protobuf.ByteString
-        getCommodityCodeBytes() {
-      Object ref = commodityCode_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
-        commodityCode_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string commodity_code = 3;</code>
-     * @param value The commodityCode to set.
-     * @return This builder for chaining.
-     */
-    public Builder setCommodityCode(
-        String value) {
-      if (value == null) { throw new NullPointerException(); }
-      commodityCode_ = value;
-      bitField0_ |= 0x00000004;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string commodity_code = 3;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearCommodityCode() {
-      commodityCode_ = getDefaultInstance().getCommodityCode();
-      bitField0_ = (bitField0_ & ~0x00000004);
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string commodity_code = 3;</code>
-     * @param value The bytes for commodityCode to set.
-     * @return This builder for chaining.
-     */
-    public Builder setCommodityCodeBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
-      commodityCode_ = value;
-      bitField0_ |= 0x00000004;
-      onChanged();
-      return this;
-    }
-
-    private int count_ ;
-    /**
-     * <code>int32 count = 4;</code>
-     * @return The count.
+     * <code>int32 quantity = 3;</code>
+     * @return The quantity.
      */
     @Override
-    public int getCount() {
-      return count_;
+    public int getQuantity() {
+      return quantity_;
     }
     /**
-     * <code>int32 count = 4;</code>
-     * @param value The count to set.
+     * <code>int32 quantity = 3;</code>
+     * @param value The quantity to set.
      * @return This builder for chaining.
      */
-    public Builder setCount(int value) {
+    public Builder setQuantity(int value) {
 
-      count_ = value;
-      bitField0_ |= 0x00000008;
+      quantity_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
-     * <code>int32 count = 4;</code>
+     * <code>int32 quantity = 3;</code>
      * @return This builder for chaining.
      */
-    public Builder clearCount() {
-      bitField0_ = (bitField0_ & ~0x00000008);
-      count_ = 0;
+    public Builder clearQuantity() {
+      bitField0_ = (bitField0_ & ~0x00000004);
+      quantity_ = 0;
       onChanged();
       return this;
     }

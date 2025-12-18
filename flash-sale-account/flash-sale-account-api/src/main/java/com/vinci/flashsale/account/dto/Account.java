@@ -30,8 +30,8 @@ public final class Account {
   static {
     String[] descriptorData = {
       "\n\raccount.proto\022\037com.vinci.flashsale.acc" +
-      "ount.dto\"6\n\024AccountReduceRequest\022\017\n\007user" +
-      "_id\030\001 \001(\t\022\r\n\005money\030\002 \001(\005B\002P\001b\006proto3"
+      "ount.dto\":\n\024AccountReduceRequest\022\016\n\006user" +
+      "Id\030\001 \001(\003\022\022\n\ntotalPrice\030\002 \001(\003B\002P\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -42,7 +42,7 @@ public final class Account {
     internal_static_com_vinci_flashsale_account_dto_AccountReduceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_vinci_flashsale_account_dto_AccountReduceRequest_descriptor,
-        new String[] { "UserId", "Money", });
+        new String[] { "UserId", "TotalPrice", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -9,20 +9,14 @@ public interface StorageReduceRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string commodityCode = 1;</code>
-   * @return The commodityCode.
+   * <code>int64 productId = 1;</code>
+   * @return The productId.
    */
-  String getCommodityCode();
-  /**
-   * <code>string commodityCode = 1;</code>
-   * @return The bytes for commodityCode.
-   */
-  com.google.protobuf.ByteString
-      getCommodityCodeBytes();
+  long getProductId();
 
   /**
-   * <code>int32 count = 2;</code>
-   * @return The count.
+   * <code>int32 quantity = 2;</code>
+   * @return The quantity.
    */
-  int getCount();
+  int getQuantity();
 }

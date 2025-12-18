@@ -1,6 +1,5 @@
 package com.vinci.flashsale.gateway.routes.order.vo;
 
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
@@ -12,13 +11,11 @@ import lombok.Data;
 @Data
 public class OrderPurchaseReqVO {
 
-    @NotBlank(message = "用户ID不能为空")
-    private String userId;
-    @NotBlank(message = "商品ID不能为空")
-    private String commodityCode;
+    @NotNull(message = "商品ID不能为空")
+    private Long productId;
     @NotNull(message = "商品数量不能为空")
-    private Integer count;
+    private Integer quantity;
     @NotNull(message = "商品单价不能为空")
-    private Integer money;
+    private Long totalPrice;
 
 }

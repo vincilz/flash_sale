@@ -17,7 +17,6 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private StorageReduceRequest() {
-    commodityCode_ = "";
   }
 
   @Override
@@ -40,54 +39,26 @@ private static final long serialVersionUID = 0L;
             StorageReduceRequest.class, Builder.class);
   }
 
-  public static final int COMMODITYCODE_FIELD_NUMBER = 1;
-  @SuppressWarnings("serial")
-  private volatile Object commodityCode_ = "";
+  public static final int PRODUCTID_FIELD_NUMBER = 1;
+  private long productId_ = 0L;
   /**
-   * <code>string commodityCode = 1;</code>
-   * @return The commodityCode.
+   * <code>int64 productId = 1;</code>
+   * @return The productId.
    */
   @Override
-  public String getCommodityCode() {
-    Object ref = commodityCode_;
-    if (ref instanceof String) {
-      return (String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      String s = bs.toStringUtf8();
-      commodityCode_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string commodityCode = 1;</code>
-   * @return The bytes for commodityCode.
-   */
-  @Override
-  public com.google.protobuf.ByteString
-      getCommodityCodeBytes() {
-    Object ref = commodityCode_;
-    if (ref instanceof String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (String) ref);
-      commodityCode_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public long getProductId() {
+    return productId_;
   }
 
-  public static final int COUNT_FIELD_NUMBER = 2;
-  private int count_ = 0;
+  public static final int QUANTITY_FIELD_NUMBER = 2;
+  private int quantity_ = 0;
   /**
-   * <code>int32 count = 2;</code>
-   * @return The count.
+   * <code>int32 quantity = 2;</code>
+   * @return The quantity.
    */
   @Override
-  public int getCount() {
-    return count_;
+  public int getQuantity() {
+    return quantity_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -104,11 +75,11 @@ private static final long serialVersionUID = 0L;
   @Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(commodityCode_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, commodityCode_);
+    if (productId_ != 0L) {
+      output.writeInt64(1, productId_);
     }
-    if (count_ != 0) {
-      output.writeInt32(2, count_);
+    if (quantity_ != 0) {
+      output.writeInt32(2, quantity_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -119,12 +90,13 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(commodityCode_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, commodityCode_);
-    }
-    if (count_ != 0) {
+    if (productId_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(2, count_);
+        .computeInt64Size(1, productId_);
+    }
+    if (quantity_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(2, quantity_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -141,10 +113,10 @@ private static final long serialVersionUID = 0L;
     }
     StorageReduceRequest other = (StorageReduceRequest) obj;
 
-    if (!getCommodityCode()
-        .equals(other.getCommodityCode())) return false;
-    if (getCount()
-        != other.getCount()) return false;
+    if (getProductId()
+        != other.getProductId()) return false;
+    if (getQuantity()
+        != other.getQuantity()) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -156,10 +128,11 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + COMMODITYCODE_FIELD_NUMBER;
-    hash = (53 * hash) + getCommodityCode().hashCode();
-    hash = (37 * hash) + COUNT_FIELD_NUMBER;
-    hash = (53 * hash) + getCount();
+    hash = (37 * hash) + PRODUCTID_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getProductId());
+    hash = (37 * hash) + QUANTITY_FIELD_NUMBER;
+    hash = (53 * hash) + getQuantity();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -291,8 +264,8 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
-      commodityCode_ = "";
-      count_ = 0;
+      productId_ = 0L;
+      quantity_ = 0;
       return this;
     }
 
@@ -327,10 +300,10 @@ private static final long serialVersionUID = 0L;
     private void buildPartial0(StorageReduceRequest result) {
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.commodityCode_ = commodityCode_;
+        result.productId_ = productId_;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.count_ = count_;
+        result.quantity_ = quantity_;
       }
     }
 
@@ -378,13 +351,11 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(StorageReduceRequest other) {
       if (other == StorageReduceRequest.getDefaultInstance()) return this;
-      if (!other.getCommodityCode().isEmpty()) {
-        commodityCode_ = other.commodityCode_;
-        bitField0_ |= 0x00000001;
-        onChanged();
+      if (other.getProductId() != 0L) {
+        setProductId(other.getProductId());
       }
-      if (other.getCount() != 0) {
-        setCount(other.getCount());
+      if (other.getQuantity() != 0) {
+        setQuantity(other.getQuantity());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -412,13 +383,13 @@ private static final long serialVersionUID = 0L;
             case 0:
               done = true;
               break;
-            case 10: {
-              commodityCode_ = input.readStringRequireUtf8();
+            case 8: {
+              productId_ = input.readInt64();
               bitField0_ |= 0x00000001;
               break;
-            } // case 10
+            } // case 8
             case 16: {
-              count_ = input.readInt32();
+              quantity_ = input.readInt32();
               bitField0_ |= 0x00000002;
               break;
             } // case 16
@@ -439,106 +410,66 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private Object commodityCode_ = "";
+    private long productId_ ;
     /**
-     * <code>string commodityCode = 1;</code>
-     * @return The commodityCode.
-     */
-    public String getCommodityCode() {
-      Object ref = commodityCode_;
-      if (!(ref instanceof String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        commodityCode_ = s;
-        return s;
-      } else {
-        return (String) ref;
-      }
-    }
-    /**
-     * <code>string commodityCode = 1;</code>
-     * @return The bytes for commodityCode.
-     */
-    public com.google.protobuf.ByteString
-        getCommodityCodeBytes() {
-      Object ref = commodityCode_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
-        commodityCode_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string commodityCode = 1;</code>
-     * @param value The commodityCode to set.
-     * @return This builder for chaining.
-     */
-    public Builder setCommodityCode(
-        String value) {
-      if (value == null) { throw new NullPointerException(); }
-      commodityCode_ = value;
-      bitField0_ |= 0x00000001;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string commodityCode = 1;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearCommodityCode() {
-      commodityCode_ = getDefaultInstance().getCommodityCode();
-      bitField0_ = (bitField0_ & ~0x00000001);
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string commodityCode = 1;</code>
-     * @param value The bytes for commodityCode to set.
-     * @return This builder for chaining.
-     */
-    public Builder setCommodityCodeBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
-      commodityCode_ = value;
-      bitField0_ |= 0x00000001;
-      onChanged();
-      return this;
-    }
-
-    private int count_ ;
-    /**
-     * <code>int32 count = 2;</code>
-     * @return The count.
+     * <code>int64 productId = 1;</code>
+     * @return The productId.
      */
     @Override
-    public int getCount() {
-      return count_;
+    public long getProductId() {
+      return productId_;
     }
     /**
-     * <code>int32 count = 2;</code>
-     * @param value The count to set.
+     * <code>int64 productId = 1;</code>
+     * @param value The productId to set.
      * @return This builder for chaining.
      */
-    public Builder setCount(int value) {
+    public Builder setProductId(long value) {
 
-      count_ = value;
+      productId_ = value;
+      bitField0_ |= 0x00000001;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 productId = 1;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearProductId() {
+      bitField0_ = (bitField0_ & ~0x00000001);
+      productId_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private int quantity_ ;
+    /**
+     * <code>int32 quantity = 2;</code>
+     * @return The quantity.
+     */
+    @Override
+    public int getQuantity() {
+      return quantity_;
+    }
+    /**
+     * <code>int32 quantity = 2;</code>
+     * @param value The quantity to set.
+     * @return This builder for chaining.
+     */
+    public Builder setQuantity(int value) {
+
+      quantity_ = value;
       bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
-     * <code>int32 count = 2;</code>
+     * <code>int32 quantity = 2;</code>
      * @return This builder for chaining.
      */
-    public Builder clearCount() {
+    public Builder clearQuantity() {
       bitField0_ = (bitField0_ & ~0x00000002);
-      count_ = 0;
+      quantity_ = 0;
       onChanged();
       return this;
     }

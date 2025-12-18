@@ -18,6 +18,7 @@
     <modules>
         <module>flash-sale-dependency-redis</module>
         <module>flash-sale-dependency-mybatis</module>
+        <module>flash-sale-dependency-dubbo</module>
     </modules>
 
 

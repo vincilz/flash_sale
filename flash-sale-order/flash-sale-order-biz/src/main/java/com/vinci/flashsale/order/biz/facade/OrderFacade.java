@@ -9,6 +9,6 @@ import com.vinci.flashsale.common.dto.CommonResponse;
  */
 public interface OrderFacade {
 
-    CommonResponse orderPurchase(String userId, String commodityCode, Integer count, Integer money);
+    CommonResponse orderPurchase(Long productId, Integer quantity, Long totalQuantity);
 
 }

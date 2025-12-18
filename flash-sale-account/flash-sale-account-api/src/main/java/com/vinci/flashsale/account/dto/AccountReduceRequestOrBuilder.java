@@ -9,20 +9,14 @@ public interface AccountReduceRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string user_id = 1;</code>
+   * <code>int64 userId = 1;</code>
    * @return The userId.
    */
-  String getUserId();
-  /**
-   * <code>string user_id = 1;</code>
-   * @return The bytes for userId.
-   */
-  com.google.protobuf.ByteString
-      getUserIdBytes();
+  long getUserId();
 
   /**
-   * <code>int32 money = 2;</code>
-   * @return The money.
+   * <code>int64 totalPrice = 2;</code>
+   * @return The totalPrice.
    */
-  int getMoney();
+  long getTotalPrice();
 }

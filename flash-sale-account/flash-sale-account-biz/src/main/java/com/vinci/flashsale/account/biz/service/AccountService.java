@@ -7,8 +7,8 @@ package com.vinci.flashsale.account.biz.service;
  */
 public interface AccountService {
 
-    void reduce(String userId, Integer money);
+    void reduce(Long totalPrice);
 
-    void compensateReduce(String userId, Integer money);
+    void compensateReduce(Long totalPrice);
 
 }

@@ -1,8 +1,9 @@
 package com.vinci.flashsale.order.biz.service;
 
 import com.baomidou.mybatisplus.core.incrementer.IdentifierGenerator;
-import com.vinci.flashsale.order.biz.entity.OrderDO;
-import com.vinci.flashsale.order.biz.mapper.OrderMapper;
+import com.vinci.flashsale.DubboHolderUtils;
+import com.vinci.flashsale.order.biz.dao.dataobj.OrderDO;
+import com.vinci.flashsale.order.biz.dao.mapper.OrderMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,14 +21,15 @@ public class DefaultOrderService implements OrderService {
     private IdentifierGenerator identifierGenerator;
 
     @Override
-    public void create(String userId, String commodityCode, Integer count, Integer money) {
+    public void create(Long productId, Integer quantity, Long totalPrice) {
+        Long userId = DubboHolderUtils.getUserId();
         Long orderId = identifierGenerator.nextId(null).longValue();
         OrderDO orderDO = new OrderDO();
         orderDO.setId(orderId);
         orderDO.setUserId(userId);
-        orderDO.setCommodityCode(commodityCode);
-        orderDO.setCount(count);
-        orderDO.setMoney(money);
+        orderDO.setProductId(productId);
+        orderDO.setQuantity(quantity);
+        orderDO.setTotalPrice(totalPrice);
         orderMapper.insert(orderDO);
     }
 

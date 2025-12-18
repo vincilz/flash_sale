@@ -15,8 +15,7 @@ import lombok.Data;
 public class AccountDO {
 
     @TableId
-    private Integer id;
-    private String userId;
-    private Integer money;
+    private Long id;
+    private Long balance;
 
 }

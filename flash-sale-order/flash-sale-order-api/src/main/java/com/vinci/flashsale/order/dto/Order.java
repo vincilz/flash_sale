@@ -30,9 +30,9 @@ public final class Order {
   static {
     String[] descriptorData = {
       "\n\013order.proto\022\035com.vinci.flashsale.order" +
-      ".dto\"]\n\024OrderPurchaseRequest\022\017\n\007user_id\030" +
-      "\001 \001(\t\022\r\n\005money\030\002 \001(\005\022\026\n\016commodity_code\030\003" +
-      " \001(\t\022\r\n\005count\030\004 \001(\005B\002P\001b\006proto3"
+      ".dto\"O\n\024OrderPurchaseRequest\022\021\n\tproductI" +
+      "d\030\001 \001(\003\022\022\n\ntotalPrice\030\002 \001(\003\022\020\n\010quantity\030" +
+      "\003 \001(\005B\002P\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -43,7 +43,7 @@ public final class Order {
     internal_static_com_vinci_flashsale_order_dto_OrderPurchaseRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_vinci_flashsale_order_dto_OrderPurchaseRequest_descriptor,
-        new String[] { "UserId", "Money", "CommodityCode", "Count", });
+        new String[] { "ProductId", "TotalPrice", "Quantity", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

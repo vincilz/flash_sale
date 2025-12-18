@@ -28,7 +28,7 @@ public class DefaultStorageApiService implements StorageApiService {
 
     @Override
     public CommonResponse reduce(StorageReduceRequest request) {
-        storageService.reduce(request.getCommodityCode(), request.getCount());
+        storageService.reduce(request.getProductId(), request.getQuantity());
         return CommonResponse.newBuilder().setCode(200).setMessage("OK").build();
     }
 

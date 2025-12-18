@@ -1,6 +1,7 @@
 package com.vinci.flashsale.order.biz.api;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import com.vinci.flashsale.DubboHolderUtils;
 import com.vinci.flashsale.common.dto.CommonResponse;
 import com.vinci.flashsale.common.utils.CommonResponseUtils;
 import com.vinci.flashsale.order.api.OrderApiService;
@@ -31,10 +32,9 @@ public class DefaultOrderApiService implements OrderApiService {
     @Override
     public CommonResponse purchase(OrderPurchaseRequest request) {
         return orderFacade.orderPurchase(
-                request.getUserId(),
-                request.getCommodityCode(),
-                request.getCount(),
-                request.getMoney()
+                request.getProductId(),
+                request.getQuantity(),
+                request.getTotalPrice()
         );
     }
 

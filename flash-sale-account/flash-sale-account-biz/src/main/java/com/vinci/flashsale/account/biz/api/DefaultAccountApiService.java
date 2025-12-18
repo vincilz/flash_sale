@@ -29,7 +29,7 @@ public class DefaultAccountApiService implements AccountApiService {
 
     @Override
     public CommonResponse reduce(AccountReduceRequest request) {
-        accountService.reduce(request.getUserId(), request.getMoney());
+        accountService.reduce(request.getTotalPrice());
         return CommonResponse.newBuilder().setCode(200).setMessage("OK").build();
     }
 
@@ -47,4 +47,5 @@ public class DefaultAccountApiService implements AccountApiService {
     public CompletableFuture<CommonResponse> compensateReduceAsync(AccountReduceRequest request) {
         return null;
     }
+
 }

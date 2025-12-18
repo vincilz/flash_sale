@@ -9,38 +9,20 @@ public interface OrderPurchaseRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string user_id = 1;</code>
-   * @return The userId.
+   * <code>int64 productId = 1;</code>
+   * @return The productId.
    */
-  String getUserId();
-  /**
-   * <code>string user_id = 1;</code>
-   * @return The bytes for userId.
-   */
-  com.google.protobuf.ByteString
-      getUserIdBytes();
+  long getProductId();
 
   /**
-   * <code>int32 money = 2;</code>
-   * @return The money.
+   * <code>int64 totalPrice = 2;</code>
+   * @return The totalPrice.
    */
-  int getMoney();
+  long getTotalPrice();
 
   /**
-   * <code>string commodity_code = 3;</code>
-   * @return The commodityCode.
+   * <code>int32 quantity = 3;</code>
+   * @return The quantity.
    */
-  String getCommodityCode();
-  /**
-   * <code>string commodity_code = 3;</code>
-   * @return The bytes for commodityCode.
-   */
-  com.google.protobuf.ByteString
-      getCommodityCodeBytes();
-
-  /**
-   * <code>int32 count = 4;</code>
-   * @return The count.
-   */
-  int getCount();
+  int getQuantity();
 }

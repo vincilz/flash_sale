@@ -13,9 +13,9 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface AccountMapper extends BaseMapper<AccountDO> {
 
-    default AccountDO findByUserId(String userId) {
+    default AccountDO findByUserId(Long userId) {
         LambdaQueryWrapper<AccountDO> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.eq(AccountDO::getUserId, userId);
+        queryWrapper.eq(AccountDO::getId, userId);
         return selectOne(queryWrapper);
     }
 

@@ -23,8 +23,8 @@
             <optional>true</optional>
         </dependency>
         <dependency>
-            <groupId>org.apache.dubbo</groupId>
-            <artifactId>dubbo-spring-boot-starter</artifactId>
+            <groupId>com.vinci.flash-sale.dependency</groupId>
+            <artifactId>flash-sale-dependency-dubbo</artifactId>
         </dependency>
         <dependency>
             <groupId>com.google.protobuf</groupId>

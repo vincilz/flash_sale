@@ -6,7 +6,7 @@ import com.vinci.flashsale.account.dto.AccountReduceRequest;
 import com.vinci.flashsale.common.dto.CommonResponse;
 import com.vinci.flashsale.common.utils.CommonResponseUtils;
 import com.vinci.flashsale.order.biz.handler.OrderBlockHandler;
-import com.vinci.flashsale.order.biz.mapper.OrderMapper;
+import com.vinci.flashsale.order.biz.dao.mapper.OrderMapper;
 import com.vinci.flashsale.order.biz.service.OrderService;
 import com.vinci.flashsale.storage.api.StorageApiService;
 import com.vinci.flashsale.storage.dto.StorageReduceRequest;
@@ -40,21 +40,20 @@ public class DefaultOrderFacade implements OrderFacade {
             fallbackClass = OrderBlockHandler.class,
             fallback = "purchaseFallback"
     )
-    public CommonResponse orderPurchase(String userId, String commodityCode, Integer count, Integer money) {
+    public CommonResponse orderPurchase(Long productId, Integer quantity, Long totalPrice) {
         // 创建订单
-        orderService.create(userId, commodityCode, count, money);
+        orderService.create(productId, quantity, totalPrice);
 
         // 扣减库存
         StorageReduceRequest storageDecreaseRequest = StorageReduceRequest.newBuilder()
-                .setCommodityCode(commodityCode)
-                .setCount(count)
+                .setProductId(productId)
+                .setQuantity(quantity)
                 .build();
         storageApiService.reduce(storageDecreaseRequest);
 
         // 扣减账户
         AccountReduceRequest accountDecreaseRequest = AccountReduceRequest.newBuilder()
-                .setUserId(userId)
-                .setMoney(money)
+                .setTotalPrice(totalPrice)
                 .build();
         accountApiService.reduce(accountDecreaseRequest);
 

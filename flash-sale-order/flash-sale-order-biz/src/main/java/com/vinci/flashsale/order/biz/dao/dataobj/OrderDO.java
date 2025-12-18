@@ -1,4 +1,4 @@
-package com.vinci.flashsale.order.biz.entity;
+package com.vinci.flashsale.order.biz.dao.dataobj;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -16,9 +16,9 @@ public class OrderDO {
 
     @TableId
     private Long id;
-    private String userId;
-    private String commodityCode;
-    private Integer count;
-    private Integer money;
+    private Long userId;
+    private Long productId;
+    private Integer quantity;
+    private Long totalPrice;
 
 }

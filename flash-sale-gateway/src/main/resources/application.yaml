@@ -18,9 +18,6 @@ spring:
       routes: []
     sentinel:
       enabled: true
-      transport:
-        dashboard: 192.168.1.117:8858
-        port: 8719
       datasource:
         gw-flow:
           nacos:

@@ -7,6 +7,6 @@ package com.vinci.flashsale.order.biz.service;
  */
 public interface OrderService {
 
-    void create(String userId, String commodityCode, Integer count, Integer money);
+    void create(Long productId, Integer quantity, Long totalPrice);
 
 }

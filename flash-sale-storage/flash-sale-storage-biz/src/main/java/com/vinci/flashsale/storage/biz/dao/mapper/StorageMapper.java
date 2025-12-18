@@ -13,9 +13,9 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface StorageMapper extends BaseMapper<StorageDO> {
 
-    default StorageDO findByCommodityCode(String commodityCode) {
+    default StorageDO findByCommodityCode(Long productId) {
         LambdaQueryWrapper<StorageDO> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.eq(StorageDO::getCommodityCode, commodityCode);
+        queryWrapper.eq(StorageDO::getId, productId);
         return selectOne(queryWrapper);
     }
 

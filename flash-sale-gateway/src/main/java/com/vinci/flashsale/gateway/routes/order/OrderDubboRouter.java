@@ -36,18 +36,13 @@ public class OrderDubboRouter {
             , fallbackClass = OrderBlockHandler.class
     )
     public Mono<CommonResult<Boolean>> purchase(@Valid @RequestBody OrderPurchaseReqVO reqVO) {
-        return Mono.fromCallable(() -> {
-            OrderPurchaseRequest dubboRequest = OrderPurchaseRequest.newBuilder()
-                    .setUserId(reqVO.getUserId())
-                    .setCommodityCode(reqVO.getCommodityCode())
-                    .setCount(reqVO.getCount())
-                    .setMoney(reqVO.getMoney())
-                    .build();
-            orderApiService.purchase(dubboRequest);
-            return true;
-        })
-        .subscribeOn(Schedulers.boundedElastic())
-        .map(CommonResult::success);
+        OrderPurchaseRequest dubboRequest = OrderPurchaseRequest.newBuilder()
+                .setProductId(reqVO.getProductId())
+                .setQuantity(reqVO.getQuantity())
+                .setTotalPrice(reqVO.getTotalPrice())
+                .build();
+        orderApiService.purchase(dubboRequest);
+        return Mono.just(CommonResult.success(true));
     }
 
 }

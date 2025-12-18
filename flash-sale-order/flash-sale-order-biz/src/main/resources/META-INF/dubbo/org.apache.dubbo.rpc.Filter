@@ -1,0 +1,2 @@
+requestIdDubboConsumerFilter=com.vinci.flashsale.DubboConsumerFilter
+userIdDubboConsumerFilter=com.vinci.flashsale.UserIdDubboConsumerFilter

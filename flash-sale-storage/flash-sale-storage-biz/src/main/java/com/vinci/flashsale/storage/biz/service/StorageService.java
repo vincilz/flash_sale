@@ -7,6 +7,6 @@ package com.vinci.flashsale.storage.biz.service;
  */
 public interface StorageService {
 
-    void reduce(String commodityCode, Integer count);
+    void reduce(Long productId, Integer quantity);
 
 }

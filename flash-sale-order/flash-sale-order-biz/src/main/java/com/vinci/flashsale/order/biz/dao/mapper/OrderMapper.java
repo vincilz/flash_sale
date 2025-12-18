@@ -1,7 +1,7 @@
-package com.vinci.flashsale.order.biz.mapper;
+package com.vinci.flashsale.order.biz.dao.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.vinci.flashsale.order.biz.entity.OrderDO;
+import com.vinci.flashsale.order.biz.dao.dataobj.OrderDO;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

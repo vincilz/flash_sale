@@ -30,9 +30,9 @@ public final class Storage {
   static {
     String[] descriptorData = {
       "\n\rstorage.proto\022\037com.vinci.flashsale.sto" +
-      "rage.dto\"<\n\024StorageReduceRequest\022\025\n\rcomm" +
-      "odityCode\030\001 \001(\t\022\r\n\005count\030\002 \001(\005B\002P\001b\006prot" +
-      "o3"
+      "rage.dto\";\n\024StorageReduceRequest\022\021\n\tprod" +
+      "uctId\030\001 \001(\003\022\020\n\010quantity\030\002 \001(\005B\002P\001b\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -43,7 +43,7 @@ public final class Storage {
     internal_static_com_vinci_flashsale_storage_dto_StorageReduceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_vinci_flashsale_storage_dto_StorageReduceRequest_descriptor,
-        new String[] { "CommodityCode", "Count", });
+        new String[] { "ProductId", "Quantity", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
